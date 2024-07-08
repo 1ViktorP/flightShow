@@ -31,6 +31,8 @@
 		FA53482C2C3C2B9D007A5FEE /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53482A2C3C2B9D007A5FEE /* Settings.swift */; };
 		FA53482E2C3C2E07007A5FEE /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA53482D2C3C2E07007A5FEE /* Inter-SemiBold.ttf */; };
 		FA5348302C3C2F2F007A5FEE /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53482F2C3C2F2F007A5FEE /* Foundation+Extension.swift */; };
+		FA5348322C3C376D007A5FEE /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5348312C3C376D007A5FEE /* Shop.swift */; };
+		FA5348342C3C42F9007A5FEE /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5348332C3C42F9007A5FEE /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		FA53482A2C3C2B9D007A5FEE /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		FA53482D2C3C2E07007A5FEE /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		FA53482F2C3C2F2F007A5FEE /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
+		FA5348312C3C376D007A5FEE /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		FA5348332C3C42F9007A5FEE /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 			children = (
 				FA53482A2C3C2B9D007A5FEE /* Settings.swift */,
 				FA5348292C3C2B9D007A5FEE /* TermsPolicy.swift */,
+				FA5348312C3C376D007A5FEE /* Shop.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 		FA5348052C3C1AF5007A5FEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA5348332C3C42F9007A5FEE /* BlurView.swift */,
 				FA5348062C3C1AFF007A5FEE /* LoaderView.swift */,
 				FA53481B2C3C2A59007A5FEE /* BackButton.swift */,
 			);
@@ -326,8 +332,10 @@
 				FA5348042C3C1AF1007A5FEE /* GameLoaderScreen.swift in Sources */,
 				FA5348272C3C2B76007A5FEE /* SettingsScreen.swift in Sources */,
 				FA5348252C3C2B76007A5FEE /* MailView.swift in Sources */,
+				FA5348322C3C376D007A5FEE /* Shop.swift in Sources */,
 				FA5348142C3C2154007A5FEE /* OnboardingScreen.swift in Sources */,
 				FA5347EE2C3C1A15007A5FEE /* FlightShowApp.swift in Sources */,
+				FA5348342C3C42F9007A5FEE /* BlurView.swift in Sources */,
 				FA53480B2C3C1B71007A5FEE /* TextModifier.swift in Sources */,
 				FA53480C2C3C1B71007A5FEE /* MainButtonStyle.swift in Sources */,
 			);
