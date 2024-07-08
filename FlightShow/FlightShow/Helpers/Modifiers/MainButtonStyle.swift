@@ -13,7 +13,7 @@ struct MainButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.custom("HamburgerHeaven", size: 34))
-            .shadow(color: .black.opacity(0.35) , radius: 2.8, y: 2)
+            .shadow(color: .black.opacity(0.35), radius: 2.8, y: 2)
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity)
             .frame(height: height)
