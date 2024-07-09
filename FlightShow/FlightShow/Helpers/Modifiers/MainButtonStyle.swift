@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MainButton: ButtonStyle {
     var height: CGFloat = 54
+    var isHamburger: Bool = true
     var disable: Bool = false
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.custom("HamburgerHeaven", size: 34))
+            .font(.custom(isHamburger ? "HamburgerHeaven" : "Inter-Bold", size: isHamburger ? 34 : 17))
             .shadow(color: .black.opacity(0.35), radius: 2.8, y: 2)
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity)

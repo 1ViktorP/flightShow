@@ -20,6 +20,7 @@ struct TextModifier: ViewModifier {
     
     enum FontType {
         case interRegular
+        case interMedium
         case interSemiBold
         case interBold
         case hamburgerHeaven
@@ -27,6 +28,7 @@ struct TextModifier: ViewModifier {
         var name: String {
             switch self {
             case .interRegular: "Inter-Regular"
+            case .interMedium: "Inter-Medium"
             case .interSemiBold: "Inter-SemiBold"
             case .interBold: "Inter-Bold"
             case .hamburgerHeaven: "HamburgerHeaven"

@@ -15,6 +15,7 @@ struct BackButton: View {
         }, label: {
             RoundedRectangle(cornerRadius: 16)
                 .fill(.secondaryBG)
+                .frame(width: 44, height: 44)
                 .overlay {
                     Image(systemName: "chevron.left")
                         .font(.system(size: 14))
