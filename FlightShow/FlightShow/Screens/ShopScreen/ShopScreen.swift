@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShopScreen: View {
-    @State private var showBoughtAlert: Bool = true
+    @State private var showBoughtAlert: Bool = false
     @State private var itemCount: Int = 0
     var body: some View {
         ZStack {
@@ -33,6 +33,21 @@ struct ShopScreen: View {
                 }
             if showBoughtAlert {
                 boughtAlert(itemCount: itemCount)
+            }
+        }.navigationBarBackButtonHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                BackButton {
+                  //  coordinator.pop()
+                }
+            }
+            ToolbarItem(placement: .principal) {
+                Text("Shop")
+                    .customText(.interSemiBold, size: 17, color: .secondaryText)
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                ImageTextView(text: "100")
             }
         }
     }
@@ -162,24 +177,13 @@ extension ShopScreen {
                             .resizable()
                             .frame(width: 218)
                     }
-            }.navigationBarBackButtonHidden(true)
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        BackButton {
-                         //   coordinator.pop()
-                        }
-                    }
-                    ToolbarItem(placement: .principal) {
-                        Text("Shop")
-                            .customText(.interSemiBold, size: 17, color: .secondaryText)
-                    }
-                }
+            }
         }
     }
 }
 
-
 #Preview {
-    ShopScreen()
+    NavigationStack {
+        ShopScreen()
+    }
 }

@@ -33,6 +33,10 @@
 		FA5348302C3C2F2F007A5FEE /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53482F2C3C2F2F007A5FEE /* Foundation+Extension.swift */; };
 		FA5348322C3C376D007A5FEE /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5348312C3C376D007A5FEE /* Shop.swift */; };
 		FA5348342C3C42F9007A5FEE /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5348332C3C42F9007A5FEE /* BlurView.swift */; };
+		FA5348362C3CFA15007A5FEE /* ImageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5348352C3CFA15007A5FEE /* ImageTextView.swift */; };
+		FA5348392C3CFC37007A5FEE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5348382C3CFC37007A5FEE /* ProfileScreen.swift */; };
+		FA53483B2C3CFEDE007A5FEE /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA53483A2C3CFEDE007A5FEE /* Inter-Medium.ttf */; };
+		FA53483D2C3D002E007A5FEE /* GameModeStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53483C2C3D002E007A5FEE /* GameModeStat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		FA53482F2C3C2F2F007A5FEE /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		FA5348312C3C376D007A5FEE /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		FA5348332C3C42F9007A5FEE /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		FA5348352C3CFA15007A5FEE /* ImageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextView.swift; sourceTree = "<group>"; };
+		FA5348382C3CFC37007A5FEE /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		FA53483A2C3CFEDE007A5FEE /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		FA53483C2C3D002E007A5FEE /* GameModeStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeStat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +132,7 @@
 				FA53482A2C3C2B9D007A5FEE /* Settings.swift */,
 				FA5348292C3C2B9D007A5FEE /* TermsPolicy.swift */,
 				FA5348312C3C376D007A5FEE /* Shop.swift */,
+				FA53483C2C3D002E007A5FEE /* GameModeStat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -131,6 +140,8 @@
 		FA5347FD2C3C1A8E007A5FEE /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA5348372C3CFC22007A5FEE /* ProfileScreen */,
+				FA53481E2C3C2B76007A5FEE /* ShopScreen */,
 				FA53481A2C3C2A2A007A5FEE /* SettingsModule */,
 				FA5348002C3C1AD5007A5FEE /* Loaders */,
 			);
@@ -170,6 +181,7 @@
 				FA5348332C3C42F9007A5FEE /* BlurView.swift */,
 				FA5348062C3C1AFF007A5FEE /* LoaderView.swift */,
 				FA53481B2C3C2A59007A5FEE /* BackButton.swift */,
+				FA5348352C3CFA15007A5FEE /* ImageTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +201,7 @@
 				FA5348152C3C2335007A5FEE /* HamburgerHeaven.ttf */,
 				FA53480E2C3C1C19007A5FEE /* Inter-Bold.ttf */,
 				FA53482D2C3C2E07007A5FEE /* Inter-SemiBold.ttf */,
+				FA53483A2C3CFEDE007A5FEE /* Inter-Medium.ttf */,
 				FA53480F2C3C1C19007A5FEE /* Inter-Regular.ttf */,
 			);
 			path = Fonts;
@@ -209,7 +222,6 @@
 				FA5348202C3C2B76007A5FEE /* MailView.swift */,
 				FA5348232C3C2B76007A5FEE /* SettingsItemView.swift */,
 				FA5348222C3C2B76007A5FEE /* SettingsScreen.swift */,
-				FA53481E2C3C2B76007A5FEE /* ShopScreen */,
 				FA5348212C3C2B76007A5FEE /* TermsScreen.swift */,
 			);
 			path = SettingsModule;
@@ -221,6 +233,14 @@
 				FA53481D2C3C2B76007A5FEE /* ShopScreen.swift */,
 			);
 			path = ShopScreen;
+			sourceTree = "<group>";
+		};
+		FA5348372C3CFC22007A5FEE /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FA5348382C3CFC37007A5FEE /* ProfileScreen.swift */,
+			);
+			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +306,7 @@
 				FA5348102C3C1C19007A5FEE /* Inter-Bold.ttf in Resources */,
 				FA5347F52C3C1A18007A5FEE /* Preview Assets.xcassets in Resources */,
 				FA5348162C3C2335007A5FEE /* HamburgerHeaven.ttf in Resources */,
+				FA53483B2C3CFEDE007A5FEE /* Inter-Medium.ttf in Resources */,
 				FA5348112C3C1C19007A5FEE /* Inter-Regular.ttf in Resources */,
 				FA5347F22C3C1A18007A5FEE /* Assets.xcassets in Resources */,
 			);
@@ -327,13 +348,16 @@
 				FA5348262C3C2B76007A5FEE /* TermsScreen.swift in Sources */,
 				FA5348072C3C1AFF007A5FEE /* LoaderView.swift in Sources */,
 				FA5348282C3C2B76007A5FEE /* SettingsItemView.swift in Sources */,
+				FA5348362C3CFA15007A5FEE /* ImageTextView.swift in Sources */,
 				FA53482B2C3C2B9D007A5FEE /* TermsPolicy.swift in Sources */,
 				FA53481C2C3C2A59007A5FEE /* BackButton.swift in Sources */,
 				FA5348042C3C1AF1007A5FEE /* GameLoaderScreen.swift in Sources */,
 				FA5348272C3C2B76007A5FEE /* SettingsScreen.swift in Sources */,
 				FA5348252C3C2B76007A5FEE /* MailView.swift in Sources */,
+				FA5348392C3CFC37007A5FEE /* ProfileScreen.swift in Sources */,
 				FA5348322C3C376D007A5FEE /* Shop.swift in Sources */,
 				FA5348142C3C2154007A5FEE /* OnboardingScreen.swift in Sources */,
+				FA53483D2C3D002E007A5FEE /* GameModeStat.swift in Sources */,
 				FA5347EE2C3C1A15007A5FEE /* FlightShowApp.swift in Sources */,
 				FA5348342C3C42F9007A5FEE /* BlurView.swift in Sources */,
 				FA53480B2C3C1B71007A5FEE /* TextModifier.swift in Sources */,
