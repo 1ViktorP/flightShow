@@ -51,4 +51,17 @@ enum GameMode: CaseIterable {
             return "training"
         }
     }
+    
+    var description: String {
+        switch self {
+        case .tournament:
+            return "In this mode, your goal is to achieve the longest flight possible. Stay in the air as long as you can while avoiding obstacles. "
+        case .event:
+            return "Targets appear at increasing speeds. React quickly to avoid collisions and collect the designated elements on your flight path."
+        case .championship:
+            return "Collect all scattered elements during your flight. Each collected element increases your score. Missing any element will result in you losing the game."
+        case .training:
+            return "This is a free test mode where you practice flying between blocks to prepare for real flights."
+        }
+    }
 }

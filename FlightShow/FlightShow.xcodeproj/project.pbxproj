@@ -43,6 +43,9 @@
 		FAD2FEE12C3D1BCB0031EFDF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEE02C3D1BCB0031EFDF /* Game.swift */; };
 		FAD2FEE32C3D25810031EFDF /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEE22C3D25810031EFDF /* CustomPageControl.swift */; };
 		FAD2FEE52C3D4F810031EFDF /* ScrollModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEE42C3D4F810031EFDF /* ScrollModifiers.swift */; };
+		FAD2FEEA2C3D5BA70031EFDF /* GameInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEE92C3D5BA70031EFDF /* GameInfoView.swift */; };
+		FAD2FEEC2C3D60DE0031EFDF /* TrainingModeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEEB2C3D60DE0031EFDF /* TrainingModeScreen.swift */; };
+		FAD2FEEE2C3D610F0031EFDF /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEED2C3D610F0031EFDF /* GameScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,9 @@
 		FAD2FEE02C3D1BCB0031EFDF /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		FAD2FEE22C3D25810031EFDF /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		FAD2FEE42C3D4F810031EFDF /* ScrollModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollModifiers.swift; sourceTree = "<group>"; };
+		FAD2FEE92C3D5BA70031EFDF /* GameInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoView.swift; sourceTree = "<group>"; };
+		FAD2FEEB2C3D60DE0031EFDF /* TrainingModeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModeScreen.swift; sourceTree = "<group>"; };
+		FAD2FEED2C3D610F0031EFDF /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,7 @@
 		FA5347FD2C3C1A8E007A5FEE /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FAD2FEE82C3D5B7E0031EFDF /* GameScreens */,
 				FAD2FEDD2C3D17E20031EFDF /* MainScreen */,
 				FA53483E2C3D0A49007A5FEE /* StatusViews */,
 				FA5348372C3CFC22007A5FEE /* ProfileScreen */,
@@ -277,6 +284,16 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
+		FAD2FEE82C3D5B7E0031EFDF /* GameScreens */ = {
+			isa = PBXGroup;
+			children = (
+				FAD2FEE92C3D5BA70031EFDF /* GameInfoView.swift */,
+				FAD2FEEB2C3D60DE0031EFDF /* TrainingModeScreen.swift */,
+				FAD2FEED2C3D610F0031EFDF /* GameScreen.swift */,
+			);
+			path = GameScreens;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,13 +395,16 @@
 				FA5348302C3C2F2F007A5FEE /* Foundation+Extension.swift in Sources */,
 				FA5348242C3C2B76007A5FEE /* ShopScreen.swift in Sources */,
 				FA53482C2C3C2B9D007A5FEE /* Settings.swift in Sources */,
+				FAD2FEEE2C3D610F0031EFDF /* GameScreen.swift in Sources */,
 				FA5348022C3C1AE5007A5FEE /* PreloaderScreen.swift in Sources */,
 				FA5348262C3C2B76007A5FEE /* TermsScreen.swift in Sources */,
 				FA5348072C3C1AFF007A5FEE /* LoaderView.swift in Sources */,
 				FA5348282C3C2B76007A5FEE /* SettingsItemView.swift in Sources */,
 				FAD2FEE52C3D4F810031EFDF /* ScrollModifiers.swift in Sources */,
+				FAD2FEEC2C3D60DE0031EFDF /* TrainingModeScreen.swift in Sources */,
 				FAD2FEDC2C3D0C400031EFDF /* StatusScreen.swift in Sources */,
 				FAD2FEE12C3D1BCB0031EFDF /* Game.swift in Sources */,
+				FAD2FEEA2C3D5BA70031EFDF /* GameInfoView.swift in Sources */,
 				FAD2FEE32C3D25810031EFDF /* CustomPageControl.swift in Sources */,
 				FA5348362C3CFA15007A5FEE /* ImageTextView.swift in Sources */,
 				FA53482B2C3C2B9D007A5FEE /* TermsPolicy.swift in Sources */,
