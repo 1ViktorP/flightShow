@@ -10,6 +10,7 @@ import SwiftUI
 struct MainButton: ButtonStyle {
     var height: CGFloat = 54
     var isHamburger: Bool = true
+    var isClear: Bool = false
     var disable: Bool = false
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -22,9 +23,13 @@ struct MainButton: ButtonStyle {
                 if disable {
                     Color.gray
                 } else {
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(.shadow(.inner(color: Color(red: 0.9333, green: 0.4078, blue: 0), radius: 2, y: -2)))
-                        .foregroundStyle( LinearGradient.yellowGradient)
+                    if isClear {
+                        Color.clear
+                    } else {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(.shadow(.inner(color: Color(red: 0.9333, green: 0.4078, blue: 0), radius: 2, y: -2)))
+                            .foregroundStyle( LinearGradient.yellowGradient)
+                    }
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: 16))

@@ -37,6 +37,8 @@
 		FA5348392C3CFC37007A5FEE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5348382C3CFC37007A5FEE /* ProfileScreen.swift */; };
 		FA53483B2C3CFEDE007A5FEE /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA53483A2C3CFEDE007A5FEE /* Inter-Medium.ttf */; };
 		FA53483D2C3D002E007A5FEE /* GameModeStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53483C2C3D002E007A5FEE /* GameModeStat.swift */; };
+		FA5348402C3D0A7B007A5FEE /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53483F2C3D0A7B007A5FEE /* Status.swift */; };
+		FAD2FEDC2C3D0C400031EFDF /* StatusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEDB2C3D0C400031EFDF /* StatusScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		FA5348382C3CFC37007A5FEE /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		FA53483A2C3CFEDE007A5FEE /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		FA53483C2C3D002E007A5FEE /* GameModeStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeStat.swift; sourceTree = "<group>"; };
+		FA53483F2C3D0A7B007A5FEE /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		FAD2FEDB2C3D0C400031EFDF /* StatusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 				FA5348292C3C2B9D007A5FEE /* TermsPolicy.swift */,
 				FA5348312C3C376D007A5FEE /* Shop.swift */,
 				FA53483C2C3D002E007A5FEE /* GameModeStat.swift */,
+				FA53483F2C3D0A7B007A5FEE /* Status.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 		FA5347FD2C3C1A8E007A5FEE /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA53483E2C3D0A49007A5FEE /* StatusViews */,
 				FA5348372C3CFC22007A5FEE /* ProfileScreen */,
 				FA53481E2C3C2B76007A5FEE /* ShopScreen */,
 				FA53481A2C3C2A2A007A5FEE /* SettingsModule */,
@@ -241,6 +247,14 @@
 				FA5348382C3CFC37007A5FEE /* ProfileScreen.swift */,
 			);
 			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		FA53483E2C3D0A49007A5FEE /* StatusViews */ = {
+			isa = PBXGroup;
+			children = (
+				FAD2FEDB2C3D0C400031EFDF /* StatusScreen.swift */,
+			);
+			path = StatusViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,8 +362,10 @@
 				FA5348262C3C2B76007A5FEE /* TermsScreen.swift in Sources */,
 				FA5348072C3C1AFF007A5FEE /* LoaderView.swift in Sources */,
 				FA5348282C3C2B76007A5FEE /* SettingsItemView.swift in Sources */,
+				FAD2FEDC2C3D0C400031EFDF /* StatusScreen.swift in Sources */,
 				FA5348362C3CFA15007A5FEE /* ImageTextView.swift in Sources */,
 				FA53482B2C3C2B9D007A5FEE /* TermsPolicy.swift in Sources */,
+				FA5348402C3D0A7B007A5FEE /* Status.swift in Sources */,
 				FA53481C2C3C2A59007A5FEE /* BackButton.swift in Sources */,
 				FA5348042C3C1AF1007A5FEE /* GameLoaderScreen.swift in Sources */,
 				FA5348272C3C2B76007A5FEE /* SettingsScreen.swift in Sources */,
