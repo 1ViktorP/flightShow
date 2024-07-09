@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
 extension ShapeStyle where Self == LinearGradient {
     static var yellowGradient: LinearGradient {
         LinearGradient(

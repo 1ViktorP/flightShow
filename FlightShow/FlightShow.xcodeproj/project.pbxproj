@@ -39,6 +39,10 @@
 		FA53483D2C3D002E007A5FEE /* GameModeStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53483C2C3D002E007A5FEE /* GameModeStat.swift */; };
 		FA5348402C3D0A7B007A5FEE /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53483F2C3D0A7B007A5FEE /* Status.swift */; };
 		FAD2FEDC2C3D0C400031EFDF /* StatusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEDB2C3D0C400031EFDF /* StatusScreen.swift */; };
+		FAD2FEDF2C3D17ED0031EFDF /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEDE2C3D17ED0031EFDF /* MainScreen.swift */; };
+		FAD2FEE12C3D1BCB0031EFDF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEE02C3D1BCB0031EFDF /* Game.swift */; };
+		FAD2FEE32C3D25810031EFDF /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEE22C3D25810031EFDF /* CustomPageControl.swift */; };
+		FAD2FEE52C3D4F810031EFDF /* ScrollModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEE42C3D4F810031EFDF /* ScrollModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +80,10 @@
 		FA53483C2C3D002E007A5FEE /* GameModeStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeStat.swift; sourceTree = "<group>"; };
 		FA53483F2C3D0A7B007A5FEE /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		FAD2FEDB2C3D0C400031EFDF /* StatusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusScreen.swift; sourceTree = "<group>"; };
+		FAD2FEDE2C3D17ED0031EFDF /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		FAD2FEE02C3D1BCB0031EFDF /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		FAD2FEE22C3D25810031EFDF /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
+		FAD2FEE42C3D4F810031EFDF /* ScrollModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +146,7 @@
 				FA5348312C3C376D007A5FEE /* Shop.swift */,
 				FA53483C2C3D002E007A5FEE /* GameModeStat.swift */,
 				FA53483F2C3D0A7B007A5FEE /* Status.swift */,
+				FAD2FEE02C3D1BCB0031EFDF /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -145,6 +154,7 @@
 		FA5347FD2C3C1A8E007A5FEE /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FAD2FEDD2C3D17E20031EFDF /* MainScreen */,
 				FA53483E2C3D0A49007A5FEE /* StatusViews */,
 				FA5348372C3CFC22007A5FEE /* ProfileScreen */,
 				FA53481E2C3C2B76007A5FEE /* ShopScreen */,
@@ -197,6 +207,7 @@
 			children = (
 				FA53480A2C3C1B71007A5FEE /* MainButtonStyle.swift */,
 				FA5348092C3C1B71007A5FEE /* TextModifier.swift */,
+				FAD2FEE42C3D4F810031EFDF /* ScrollModifiers.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -255,6 +266,15 @@
 				FAD2FEDB2C3D0C400031EFDF /* StatusScreen.swift */,
 			);
 			path = StatusViews;
+			sourceTree = "<group>";
+		};
+		FAD2FEDD2C3D17E20031EFDF /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FAD2FEDE2C3D17ED0031EFDF /* MainScreen.swift */,
+				FAD2FEE22C3D25810031EFDF /* CustomPageControl.swift */,
+			);
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,7 +382,10 @@
 				FA5348262C3C2B76007A5FEE /* TermsScreen.swift in Sources */,
 				FA5348072C3C1AFF007A5FEE /* LoaderView.swift in Sources */,
 				FA5348282C3C2B76007A5FEE /* SettingsItemView.swift in Sources */,
+				FAD2FEE52C3D4F810031EFDF /* ScrollModifiers.swift in Sources */,
 				FAD2FEDC2C3D0C400031EFDF /* StatusScreen.swift in Sources */,
+				FAD2FEE12C3D1BCB0031EFDF /* Game.swift in Sources */,
+				FAD2FEE32C3D25810031EFDF /* CustomPageControl.swift in Sources */,
 				FA5348362C3CFA15007A5FEE /* ImageTextView.swift in Sources */,
 				FA53482B2C3C2B9D007A5FEE /* TermsPolicy.swift in Sources */,
 				FA5348402C3D0A7B007A5FEE /* Status.swift in Sources */,
@@ -371,6 +394,7 @@
 				FA5348272C3C2B76007A5FEE /* SettingsScreen.swift in Sources */,
 				FA5348252C3C2B76007A5FEE /* MailView.swift in Sources */,
 				FA5348392C3CFC37007A5FEE /* ProfileScreen.swift in Sources */,
+				FAD2FEDF2C3D17ED0031EFDF /* MainScreen.swift in Sources */,
 				FA5348322C3C376D007A5FEE /* Shop.swift in Sources */,
 				FA5348142C3C2154007A5FEE /* OnboardingScreen.swift in Sources */,
 				FA53483D2C3D002E007A5FEE /* GameModeStat.swift in Sources */,

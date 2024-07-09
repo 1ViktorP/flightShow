@@ -16,3 +16,9 @@ extension UIDevice {
         }
     }
 }
+
+extension CGRect {
+    var minPoint: CGPoint {
+        CGPoint(x: self.minX, y: self.minY)
+    }
+}
