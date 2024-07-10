@@ -115,7 +115,6 @@ struct ProfileScreen: View {
                     .fill(.secondaryBG)
             }
     }
-    
 }
 
 #Preview {

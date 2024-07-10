@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Status {
+enum GameStatus {
     case win
     case lose
     case exit

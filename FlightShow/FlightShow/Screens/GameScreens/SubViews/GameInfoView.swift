@@ -17,13 +17,16 @@ struct GameInfoView: View {
                 .padding(.bottom, 12)
             Text(gameMode.description)
                 .customText(size: 17)
+                .multilineTextAlignment(.center)
                 .padding(.bottom, 20)
            detailInfo
             Button("Start", action: {
-                
+                action()
             }).buttonStyle(MainButton())
-                .padding(.bottom, 36)
-        }.background {
+        }.padding(.horizontal, 16)
+            .padding(.top, 40)
+            .padding(.bottom, 44)
+        .background {
             RoundedRectangle(cornerRadius: 40)
                 .fill(.mainBG)
         }.padding(16)

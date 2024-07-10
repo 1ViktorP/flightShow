@@ -64,4 +64,12 @@ enum GameMode: CaseIterable {
             return "This is a free test mode where you practice flying between blocks to prepare for real flights."
         }
     }
+    
+    var paymentGame: Int {
+        if self == .training {
+            return 0
+        } else {
+            return 2
+        }
+    }
 }
