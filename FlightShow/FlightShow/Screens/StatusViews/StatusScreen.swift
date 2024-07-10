@@ -9,7 +9,8 @@ import SwiftUI
 
 struct StatusScreen: View {
    
-    let gameStatus: Status
+    let gameStatus: GameStatus
+    var action: () -> Void
     var body: some View {
         VStack {
             Spacer()
@@ -59,7 +60,7 @@ struct StatusScreen: View {
                 }.buttonStyle(MainButton(isHamburger: false, isClear: true))
             case .lose:
                 Button("Try Again") {
-                    
+                    action()
                 }.buttonStyle(MainButton(isHamburger: false))
                 Button("Go Home") {
                     
@@ -97,5 +98,7 @@ struct StatusScreen: View {
 }
 
 #Preview {
-    StatusScreen(gameStatus: .lose)
+    StatusScreen(gameStatus: .lose) {
+        
+    }
 }
