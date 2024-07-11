@@ -44,6 +44,11 @@
 		FA53483B2C3CFEDE007A5FEE /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA53483A2C3CFEDE007A5FEE /* Inter-Medium.ttf */; };
 		FA53483D2C3D002E007A5FEE /* GameModeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53483C2C3D002E007A5FEE /* GameModeItems.swift */; };
 		FA5348402C3D0A7B007A5FEE /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53483F2C3D0A7B007A5FEE /* GameStatus.swift */; };
+		FA8027002C3FA56B0039C18C /* TargetEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8026FF2C3FA56B0039C18C /* TargetEventScreen.swift */; };
+		FA8027022C3FA5770039C18C /* TargetEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8027012C3FA5770039C18C /* TargetEventViewModel.swift */; };
+		FA8027042C3FA6BA0039C18C /* WeightGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8027032C3FA6BA0039C18C /* WeightGenerator.swift */; };
+		FA8027072C3FC9770039C18C /* TournamentVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8027062C3FC9770039C18C /* TournamentVIewModel.swift */; };
+		FA8027092C3FC9910039C18C /* TournamentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8027082C3FC9910039C18C /* TournamentScreen.swift */; };
 		FAD2FEDC2C3D0C400031EFDF /* StatusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEDB2C3D0C400031EFDF /* StatusScreen.swift */; };
 		FAD2FEDF2C3D17ED0031EFDF /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEDE2C3D17ED0031EFDF /* MainScreen.swift */; };
 		FAD2FEE12C3D1BCB0031EFDF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2FEE02C3D1BCB0031EFDF /* Game.swift */; };
@@ -97,6 +102,11 @@
 		FA53483A2C3CFEDE007A5FEE /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		FA53483C2C3D002E007A5FEE /* GameModeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeItems.swift; sourceTree = "<group>"; };
 		FA53483F2C3D0A7B007A5FEE /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
+		FA8026FF2C3FA56B0039C18C /* TargetEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetEventScreen.swift; sourceTree = "<group>"; };
+		FA8027012C3FA5770039C18C /* TargetEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetEventViewModel.swift; sourceTree = "<group>"; };
+		FA8027032C3FA6BA0039C18C /* WeightGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightGenerator.swift; sourceTree = "<group>"; };
+		FA8027062C3FC9770039C18C /* TournamentVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentVIewModel.swift; sourceTree = "<group>"; };
+		FA8027082C3FC9910039C18C /* TournamentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentScreen.swift; sourceTree = "<group>"; };
 		FAD2FEDB2C3D0C400031EFDF /* StatusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusScreen.swift; sourceTree = "<group>"; };
 		FAD2FEDE2C3D17ED0031EFDF /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		FAD2FEE02C3D1BCB0031EFDF /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -315,6 +325,36 @@
 			path = StatusViews;
 			sourceTree = "<group>";
 		};
+		FA8026FD2C3FA5410039C18C /* Modes */ = {
+			isa = PBXGroup;
+			children = (
+				FA8027052C3FC9610039C18C /* Tournament */,
+				FA8026FE2C3FA54B0039C18C /* TargetEvent */,
+				FAD2FEF32C3D7A340031EFDF /* Training */,
+				FA2E20392C3EDFCA00B60DC5 /* ChampionShip */,
+			);
+			path = Modes;
+			sourceTree = "<group>";
+		};
+		FA8026FE2C3FA54B0039C18C /* TargetEvent */ = {
+			isa = PBXGroup;
+			children = (
+				FA8026FF2C3FA56B0039C18C /* TargetEventScreen.swift */,
+				FA8027012C3FA5770039C18C /* TargetEventViewModel.swift */,
+				FA8027032C3FA6BA0039C18C /* WeightGenerator.swift */,
+			);
+			path = TargetEvent;
+			sourceTree = "<group>";
+		};
+		FA8027052C3FC9610039C18C /* Tournament */ = {
+			isa = PBXGroup;
+			children = (
+				FA8027062C3FC9770039C18C /* TournamentVIewModel.swift */,
+				FA8027082C3FC9910039C18C /* TournamentScreen.swift */,
+			);
+			path = Tournament;
+			sourceTree = "<group>";
+		};
 		FAD2FEDD2C3D17E20031EFDF /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,9 +367,8 @@
 		FAD2FEE82C3D5B7E0031EFDF /* GameScreens */ = {
 			isa = PBXGroup;
 			children = (
-				FA2E20392C3EDFCA00B60DC5 /* ChampionShip */,
+				FA8026FD2C3FA5410039C18C /* Modes */,
 				FA3D04D72C3E7DB600F4D1D5 /* SubViews */,
-				FAD2FEF32C3D7A340031EFDF /* Training */,
 				FAD2FEED2C3D610F0031EFDF /* GameScreen.swift */,
 				FA3D04CF2C3E509A00F4D1D5 /* GameViewModel.swift */,
 			);
@@ -443,6 +482,7 @@
 			files = (
 				FA3D04D02C3E509A00F4D1D5 /* GameViewModel.swift in Sources */,
 				FA5348192C3C2466007A5FEE /* Linear+Extensions.swift in Sources */,
+				FA8027092C3FC9910039C18C /* TournamentScreen.swift in Sources */,
 				FA5347F02C3C1A15007A5FEE /* ContentView.swift in Sources */,
 				FA5348302C3C2F2F007A5FEE /* Foundation+Extension.swift in Sources */,
 				FA5348242C3C2B76007A5FEE /* ShopScreen.swift in Sources */,
@@ -452,10 +492,12 @@
 				FA5348022C3C1AE5007A5FEE /* PreloaderScreen.swift in Sources */,
 				FA5348262C3C2B76007A5FEE /* TermsScreen.swift in Sources */,
 				FA5348072C3C1AFF007A5FEE /* LoaderView.swift in Sources */,
+				FA8027022C3FA5770039C18C /* TargetEventViewModel.swift in Sources */,
 				FA5348282C3C2B76007A5FEE /* SettingsItemView.swift in Sources */,
 				FAD2FEE52C3D4F810031EFDF /* ScrollModifiers.swift in Sources */,
 				FAD2FEEC2C3D60DE0031EFDF /* TrainingModeScreen.swift in Sources */,
 				FAD2FEDC2C3D0C400031EFDF /* StatusScreen.swift in Sources */,
+				FA8027002C3FA56B0039C18C /* TargetEventScreen.swift in Sources */,
 				FAD2FEE12C3D1BCB0031EFDF /* Game.swift in Sources */,
 				FA3D04D62C3E767400F4D1D5 /* PlaneView.swift in Sources */,
 				FAD2FEEA2C3D5BA70031EFDF /* GameInfoView.swift in Sources */,
@@ -465,6 +507,7 @@
 				FA5348402C3D0A7B007A5FEE /* GameStatus.swift in Sources */,
 				FA53481C2C3C2A59007A5FEE /* BackButton.swift in Sources */,
 				FA5348042C3C1AF1007A5FEE /* GameLoaderScreen.swift in Sources */,
+				FA8027072C3FC9770039C18C /* TournamentVIewModel.swift in Sources */,
 				FA5348272C3C2B76007A5FEE /* SettingsScreen.swift in Sources */,
 				FA3D04D22C3E540B00F4D1D5 /* Extension+Task.swift in Sources */,
 				FAD2FEF52C3D7A470031EFDF /* TrainingViewModel.swift in Sources */,
@@ -482,6 +525,7 @@
 				FA53480B2C3C1B71007A5FEE /* TextModifier.swift in Sources */,
 				FAD2FEF02C3D783F0031EFDF /* DisplayLink.swift in Sources */,
 				FA53480C2C3C1B71007A5FEE /* MainButtonStyle.swift in Sources */,
+				FA8027042C3FA6BA0039C18C /* WeightGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

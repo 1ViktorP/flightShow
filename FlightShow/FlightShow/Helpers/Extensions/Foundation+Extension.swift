@@ -22,3 +22,12 @@ extension CGRect {
         CGPoint(x: self.minX, y: self.minY)
     }
 }
+
+extension Int {
+    func toTimeText() -> String {
+        let minutes = String(format: "%02d", self / 60)
+        let seconds = String(format: "%02d", self % 60)
+        
+        return "\(minutes):\(seconds)"
+    }
+}

@@ -62,6 +62,7 @@ struct ChampionshipScreen: View {
             displayLink.start()
         }.onChange(of: gameVM.tryAgain) { _ in
             if  gameVM.tryAgain {
+                gameVM.scoreCount = 0
                 championshipVM.elements.removeAll()
                 championshipVM.timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
                 displayLink.start()
