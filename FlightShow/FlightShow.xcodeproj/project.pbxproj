@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2E203B2C3EDFE800B60DC5 /* ChampionshipScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E203A2C3EDFE800B60DC5 /* ChampionshipScreen.swift */; };
+		FA2E203D2C3EE00A00B60DC5 /* ChampionshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E203C2C3EE00A00B60DC5 /* ChampionshipViewModel.swift */; };
 		FA3D04D02C3E509A00F4D1D5 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D04CF2C3E509A00F4D1D5 /* GameViewModel.swift */; };
 		FA3D04D22C3E540B00F4D1D5 /* Extension+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D04D12C3E540B00F4D1D5 /* Extension+Task.swift */; };
 		FA3D04D42C3E698B00F4D1D5 /* UserPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D04D32C3E698B00F4D1D5 /* UserPlane.swift */; };
@@ -56,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2E203A2C3EDFE800B60DC5 /* ChampionshipScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionshipScreen.swift; sourceTree = "<group>"; };
+		FA2E203C2C3EE00A00B60DC5 /* ChampionshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionshipViewModel.swift; sourceTree = "<group>"; };
 		FA3D04CF2C3E509A00F4D1D5 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		FA3D04D12C3E540B00F4D1D5 /* Extension+Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Task.swift"; sourceTree = "<group>"; };
 		FA3D04D32C3E698B00F4D1D5 /* UserPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlane.swift; sourceTree = "<group>"; };
@@ -117,6 +121,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2E20392C3EDFCA00B60DC5 /* ChampionShip */ = {
+			isa = PBXGroup;
+			children = (
+				FA2E203A2C3EDFE800B60DC5 /* ChampionshipScreen.swift */,
+				FA2E203C2C3EE00A00B60DC5 /* ChampionshipViewModel.swift */,
+			);
+			path = ChampionShip;
+			sourceTree = "<group>";
+		};
 		FA3D04D72C3E7DB600F4D1D5 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +327,7 @@
 		FAD2FEE82C3D5B7E0031EFDF /* GameScreens */ = {
 			isa = PBXGroup;
 			children = (
+				FA2E20392C3EDFCA00B60DC5 /* ChampionShip */,
 				FA3D04D72C3E7DB600F4D1D5 /* SubViews */,
 				FAD2FEF32C3D7A340031EFDF /* Training */,
 				FAD2FEED2C3D610F0031EFDF /* GameScreen.swift */,
@@ -457,11 +471,13 @@
 				FA5348252C3C2B76007A5FEE /* MailView.swift in Sources */,
 				FA5348392C3CFC37007A5FEE /* ProfileScreen.swift in Sources */,
 				FAD2FEDF2C3D17ED0031EFDF /* MainScreen.swift in Sources */,
+				FA2E203B2C3EDFE800B60DC5 /* ChampionshipScreen.swift in Sources */,
 				FA5348322C3C376D007A5FEE /* Shop.swift in Sources */,
 				FA5348142C3C2154007A5FEE /* OnboardingScreen.swift in Sources */,
 				FA53483D2C3D002E007A5FEE /* GameModeItems.swift in Sources */,
 				FA5347EE2C3C1A15007A5FEE /* FlightShowApp.swift in Sources */,
 				FA5348342C3C42F9007A5FEE /* BlurView.swift in Sources */,
+				FA2E203D2C3EE00A00B60DC5 /* ChampionshipViewModel.swift in Sources */,
 				FAD2FEF22C3D796F0031EFDF /* PositionObserver.swift in Sources */,
 				FA53480B2C3C1B71007A5FEE /* TextModifier.swift in Sources */,
 				FAD2FEF02C3D783F0031EFDF /* DisplayLink.swift in Sources */,

@@ -25,3 +25,15 @@ struct GameTrainingItem: Identifiable {
     
     static let size = CGSize(width: 112, height: 53)
 }
+
+struct GameChampionshipItem: Identifiable {
+    let id = UUID()
+    let name: String
+    var xPosition: CGFloat
+    var offset: CGFloat
+    var isGoingToRemove: Bool = false
+    
+    static let size = CGSize(width: 36, height: 36)
+}
+
+

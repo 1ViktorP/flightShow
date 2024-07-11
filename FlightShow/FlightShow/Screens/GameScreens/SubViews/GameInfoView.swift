@@ -20,6 +20,7 @@ struct GameInfoView: View {
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 20)
            detailInfo
+                .padding(.bottom, 24)
             Button("Start", action: {
                 action()
             }).buttonStyle(MainButton())
