@@ -9,7 +9,7 @@ import Foundation
 
 enum GameMode: CaseIterable {
     case tournament
-    case event
+    case targetEvent
     case championship
     case training
     
@@ -17,7 +17,7 @@ enum GameMode: CaseIterable {
         switch self {
         case .tournament:
             return "Endless Soar"
-        case .event:
+        case .targetEvent:
             return "Accelerated Targets"
         case .championship:
             return "Element"
@@ -30,7 +30,7 @@ enum GameMode: CaseIterable {
         switch self {
         case .tournament:
             return "Tournament"
-        case .event:
+        case .targetEvent:
             return "Event"
         case .championship:
             return "Championship"
@@ -43,7 +43,7 @@ enum GameMode: CaseIterable {
         switch self {
         case .tournament:
             return "tournament"
-        case .event:
+        case .targetEvent:
             return "event"
         case .championship:
             return "championship"
@@ -56,7 +56,7 @@ enum GameMode: CaseIterable {
         switch self {
         case .tournament:
             return "In this mode, your goal is to achieve the longest flight possible. Stay in the air as long as you can while avoiding obstacles. "
-        case .event:
+        case .targetEvent:
             return "Targets appear at increasing speeds. React quickly to avoid collisions and collect the designated elements on your flight path."
         case .championship:
             return "Collect all scattered elements during your flight. Each collected element increases your score. Missing any element will result in you losing the game."

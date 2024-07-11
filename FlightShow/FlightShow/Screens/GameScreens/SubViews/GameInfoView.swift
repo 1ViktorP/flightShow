@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameInfoView: View {
     let gameMode: GameMode
+    var target: String = ""
     var action: () -> Void
     var body: some View {
         VStack(spacing: 0) {
@@ -38,9 +39,9 @@ struct GameInfoView: View {
             switch gameMode {
             case .tournament:
                 statSubItem(text: "Entry: ", icon: "ticketStatus", value: "2")
-            case .event:
+            case .targetEvent:
                 statSubItem(text: "Entry: ", icon: "ticketStatus", value: "2")
-                statSubItem(text: "Target: ", icon: "ticketStatus", value: "2")
+                statSubItem(text: "Target: ", icon: target, value: "2")
             case .championship:
                 statSubItem(text: "Entry: ", icon: "ticketStatus", value: "2")
             case .training:

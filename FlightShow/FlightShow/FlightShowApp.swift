@@ -12,7 +12,7 @@ struct FlightShowApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                GameScreen(gameMode: .championship)
+                GameScreen(gameMode: .tournament)
             }
         }
     }

@@ -23,6 +23,7 @@ struct ImageTextView: View {
                 .overlay {
                     Text(text)
                         .customText(.interBold, color: .secondaryText)
+                        .offset(x: 5)
                 }
         }
     }

@@ -28,9 +28,11 @@ struct GameScreen: View {
                 ZStack {
                     switch gameMode {
                     case .tournament:
-                        EmptyView()
-                    case .event:
-                        EmptyView()
+                        TournamentScreen(gameVM: gameVM, displayLink: displayLink, planePosition: planePositon)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    case .targetEvent:
+                        TargetEventScreen(gameVM: gameVM, displayLink: displayLink, planePosition: planePositon)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                     case .championship:
                         ChampionshipScreen(gameVM: gameVM, displayLink: displayLink, planePosition: planePositon)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -41,7 +43,7 @@ struct GameScreen: View {
                     PlaneView(position: $planePositon)
                 }
             } else {
-                GameInfoView(gameMode: gameMode) {
+                GameInfoView(gameMode: gameMode, target: gameVM.targetElement) {
                     hasInfoRead = true
                 }
             }
@@ -70,9 +72,9 @@ struct GameScreen: View {
             ToolbarItem(placement: .topBarTrailing) {
                 switch gameMode {
                 case .tournament:
-                    EmptyView()
-                case .event:
-                    EmptyView()
+                    ImageTextView(text: gameVM.seconds.toTimeText())
+                case .targetEvent:
+                    targetItem
                 case .championship:
                     ImageTextView(text: "\(gameVM.scoreCount)")
                 case .training:
@@ -80,6 +82,27 @@ struct GameScreen: View {
                 }
             }
         }
+    }
+    
+    var targetItem: some View {
+    
+            HStack(spacing: -25) {
+                Image(gameVM.targetElement)
+                    .resizable()
+                    .frame(width: 42, height: 42)
+                    .zIndex(1)
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(.secondaryBG)
+                    .frame(width: 84, height: 36)
+                    .overlay {
+                        HStack(spacing: 0) {
+                            Text("\(gameVM.scoreCount)")
+                                .customText(.interBold, color: .white)
+                            Text("/\(gameVM.targetCount)")
+                                .customText(.interBold, color: .secondaryText)
+                        }
+                    }
+            }
     }
 }
 
