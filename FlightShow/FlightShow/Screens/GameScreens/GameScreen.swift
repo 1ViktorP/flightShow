@@ -17,7 +17,6 @@ struct GameScreen: View {
     init(gameMode: GameMode) {
         self.gameMode = gameMode
         _gameVM = StateObject(wrappedValue: GameViewModel(currentMode: gameMode))
-        
     }
     
     var body: some View {
@@ -33,7 +32,8 @@ struct GameScreen: View {
                     case .event:
                         EmptyView()
                     case .championship:
-                        EmptyView()
+                        ChampionshipScreen(gameVM: gameVM, displayLink: displayLink, planePosition: planePositon)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                     case .training:
                         TrainingModeScreen(gameVM: gameVM, displayLink: displayLink, planePosition: planePositon)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -48,7 +48,7 @@ struct GameScreen: View {
             if gameVM.gameStatus != nil {
                 StatusScreen(gameStatus: gameVM.gameStatus!) {
                     switch gameVM.gameStatus {
-                    case .lose: 
+                    case .lose:
                         gameVM.tryAgain = true
                     default: break
                     }
@@ -74,7 +74,7 @@ struct GameScreen: View {
                 case .event:
                     EmptyView()
                 case .championship:
-                    EmptyView()
+                    ImageTextView(text: "\(gameVM.scoreCount)")
                 case .training:
                     EmptyView()
                 }

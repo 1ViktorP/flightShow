@@ -10,6 +10,7 @@ import Foundation
 class GameViewModel: ObservableObject {
     
     var currentMode: GameMode
+    var scoreCount: Int = 0
     @Published var gameStatus: GameStatus?
     @Published var tryAgain: Bool = false
    
