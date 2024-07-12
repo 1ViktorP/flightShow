@@ -72,4 +72,28 @@ enum GameMode: String, CaseIterable {
             return 2
         }
     }
+    
+    func updateSpeedForLevel(level: Int) -> Double {
+        return switch self {
+        case .tournament:
+            if level > 10 {
+                 Double(level) * 0.05
+            } else {
+                3.0
+            }
+        case .targetEvent:
+            4.0
+        case .championship:
+            if level > 30 {
+                6.5
+            } else if level > 10 {
+                Double(level) * 0.1 + 3.2
+            } else {
+                3.2
+            }
+        case .training:
+             3.2
+        }
+    }
+    
 }

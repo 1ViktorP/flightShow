@@ -28,7 +28,7 @@ struct TrainingModeScreen: View {
                     .rotationEffect(.degrees(item.isRotate ? 90 : 0))
                     .onChange(of: displayLink.updateValue) { _ in
                         if trainingVM.blocks.count > index {
-                            trainingVM.blocks[index].offset += 3.2
+                            trainingVM.blocks[index].offset += gameVM.speed
                             trainingVM.checkCollision(isRotate: item.isRotate, elementPosition: CGPoint(x: trainingVM.blocks[index].xPosition,
                                                                            y: trainingVM.blocks[index].offset),
                                                   planePosition: planePosition) { isTouch in
@@ -64,6 +64,16 @@ struct TrainingModeScreen: View {
                 trainingVM.timer = Timer.publish(every: 2.3, on: .main, in: .default).autoconnect()
                 displayLink.start()
                 gameVM.tryAgain = false
+            }
+        }.onChange(of: gameVM.pause) { _ in
+            if gameVM.pause {
+                displayLink.stop()
+                trainingVM.timer.upstream.connect().cancel()
+            }
+        }.onChange(of: gameVM.continueGame) { _ in
+            if gameVM.continueGame {
+                displayLink.start()
+                trainingVM.timer = Timer.publish(every: 2.3, on: .main, in: .default).autoconnect()
             }
         }
     }

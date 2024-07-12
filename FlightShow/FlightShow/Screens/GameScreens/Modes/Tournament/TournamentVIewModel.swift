@@ -9,7 +9,7 @@ import Foundation
 
 class TournamentVIewModel: ObservableObject {
     
-    var timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+    var timer = Timer.publish(every: 1.5, on: .main, in: .default).autoconnect()
     @Published var elements: [GameTargetTournamentItem] = []
     var screenWidth: CGFloat = 0.0
     

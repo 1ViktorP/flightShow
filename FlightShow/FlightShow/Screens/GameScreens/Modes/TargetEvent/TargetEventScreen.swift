@@ -28,7 +28,7 @@ struct TargetEventScreen: View {
                     .frame(width: GameTargetTournamentItem.size(name: item.name).width, height: GameTargetTournamentItem.size(name: item.name).height)
                     .onChange(of: displayLink.updateValue) { _ in
                         if targetVM.elements.count > index {
-                            targetVM.elements[index].offset += 4
+                            targetVM.elements[index].offset += gameVM.speed
                             targetVM.checkCollision(elementPosition: CGPoint(x: targetVM.elements[index].xPosition,
                                                                               y: targetVM.elements[index].offset),
                                                     elementName: item.name,
@@ -40,9 +40,12 @@ struct TargetEventScreen: View {
                                     }
                                     targetVM.elements[index].isCatch = true
                                 } else {
-                                    displayLink.stop()
-                                    targetVM.timer.upstream.connect().cancel()
-                                    gameVM.gameStatus = .lose
+                                    if !targetVM.elements[index].isCatch {
+                                        displayLink.stop()
+                                        targetVM.timer.upstream.connect().cancel()
+                                        gameVM.gameStatus = .lose
+                                    }
+                                    targetVM.elements[index].isCatch = true
                                 }
                             }
                             if targetVM.elements[index].offset > 1000 {
@@ -71,6 +74,22 @@ struct TargetEventScreen: View {
                 targetVM.timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
                 displayLink.start()
                 gameVM.tryAgain = false
+            }
+        }.onChange(of: gameVM.pause) { _ in
+            if gameVM.pause {
+                displayLink.stop()
+                targetVM.timer.upstream.connect().cancel()
+            }
+        }.onChange(of: gameVM.continueGame) { _ in
+            if gameVM.continueGame {
+                displayLink.start()
+                targetVM.timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+            }
+        }.onChange(of: gameVM.scoreCount) { newValue in
+            if newValue >= gameVM.targetCount {
+                gameVM.gameStatus = .win
+                displayLink.stop()
+                targetVM.timer.upstream.connect().cancel()
             }
         }
     }

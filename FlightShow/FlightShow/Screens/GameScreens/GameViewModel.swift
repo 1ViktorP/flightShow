@@ -16,9 +16,10 @@ class GameViewModel: ObservableObject {
     let targetElement: String = "target-\(Int.random(in: 1...3))" // targetmode
     @Published var gameStatus: GameStatus?
     @Published var tryAgain: Bool = false
-   
+    @Published var pause: Bool = false
+    @Published var continueGame: Bool = false
+    var speed: Double = 1.0
     init(currentMode: GameMode) {
         self.currentMode = currentMode
-        
     }
 }

@@ -28,7 +28,7 @@ struct TournamentScreen: View {
                     .frame(width: GameTargetTournamentItem.size(name: item.name).width, height: GameTargetTournamentItem.size(name: item.name).height)
                     .onChange(of: displayLink.updateValue) { _ in
                         if tournamentVM.elements.count > index {
-                            tournamentVM.elements[index].offset += 4
+                            tournamentVM.elements[index].offset += gameVM.speed
                             tournamentVM.checkCollision(elementPosition: CGPoint(x: tournamentVM.elements[index].xPosition,
                                                                               y: tournamentVM.elements[index].offset),
                                                     elementName: item.name,
@@ -64,9 +64,19 @@ struct TournamentScreen: View {
             if  gameVM.tryAgain {
                 gameVM.seconds = 0
                 tournamentVM.elements.removeAll()
-                tournamentVM.timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+                tournamentVM.timer = Timer.publish(every: 1.5, on: .main, in: .default).autoconnect()
                 displayLink.start()
                 gameVM.tryAgain = false
+            }
+        }.onChange(of: gameVM.pause) { _ in
+            if gameVM.pause {
+                displayLink.stop()
+                tournamentVM.timer.upstream.connect().cancel()
+            }
+        }.onChange(of: gameVM.continueGame) { _ in
+            if gameVM.continueGame {
+                displayLink.start()
+                tournamentVM.timer = Timer.publish(every: 1.5, on: .main, in: .default).autoconnect()
             }
         }
     }

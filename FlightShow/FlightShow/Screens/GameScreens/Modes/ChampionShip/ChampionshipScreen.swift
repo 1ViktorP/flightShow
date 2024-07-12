@@ -27,7 +27,7 @@ struct ChampionshipScreen: View {
                     .frame(width: GameChampionshipItem.size.width, height: GameChampionshipItem.size.height)
                     .onChange(of: displayLink.updateValue) { _ in
                         if championshipVM.elements.count > index {
-                            championshipVM.elements[index].offset += 3.2
+                            championshipVM.elements[index].offset += gameVM.speed
                             championshipVM.checkCollision(elementPosition: CGPoint(x: championshipVM.elements[index].xPosition,
                                                                            y: championshipVM.elements[index].offset),
                                                   planePosition: planePosition) { isTouch in
@@ -67,6 +67,16 @@ struct ChampionshipScreen: View {
                 championshipVM.timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
                 displayLink.start()
                 gameVM.tryAgain = false
+            }
+        }.onChange(of: gameVM.pause) { _ in
+            if gameVM.pause {
+                displayLink.stop()
+                championshipVM.timer.upstream.connect().cancel()
+            }
+        }.onChange(of: gameVM.continueGame) { _ in
+            if gameVM.continueGame {
+                displayLink.start()
+                championshipVM.timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
             }
         }
     }

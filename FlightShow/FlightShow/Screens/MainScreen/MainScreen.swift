@@ -50,6 +50,7 @@ struct MainScreen: View {
         CustomPageControl(totalIndex: GameMode.allCases.count, selectedIndex: selectedIndex)
         Spacer()
         Button("Play") {
+            userManager.tickets -= GameMode.allCases[selectedIndex].paymentGame
             coordinator.push(.gameLoader(GameMode.allCases[selectedIndex]))
         }.buttonStyle(MainButton())
             .padding(.horizontal, 16)
@@ -165,7 +166,6 @@ struct ViewLocationPreferenceKey: PreferenceKey {
         value = nextValue
     }
 }
-
 
 #Preview {
     NavigationStack {
