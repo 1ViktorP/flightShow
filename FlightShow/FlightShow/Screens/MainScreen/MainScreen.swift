@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainScreen: View {
+    @EnvironmentObject var coordinator: MainCoordinator
+    @EnvironmentObject var userManager: UserManager
+    @Environment(\.scenePhase) var scenePhase
     @State var selectedIndex: Int = 0
     @State private var position: CGRect = .zero
     var body: some View {
@@ -18,7 +21,7 @@ struct MainScreen: View {
             ScrollViewReader { reader in
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(Array(zip(GameMode.allCases.indices,GameMode.allCases)), id: \.0) { (index, item) in
+                        ForEach(Array(zip(GameMode.allCases.indices, GameMode.allCases)), id: \.0) { (index, item) in
                             TabItem(game: item)
                                 .coordinateSpace(name: index)
                                 .background {
@@ -47,7 +50,7 @@ struct MainScreen: View {
         CustomPageControl(totalIndex: GameMode.allCases.count, selectedIndex: selectedIndex)
         Spacer()
         Button("Play") {
-            print(selectedIndex)
+            coordinator.push(.gameLoader(GameMode.allCases[selectedIndex]))
         }.buttonStyle(MainButton())
             .padding(.horizontal, 16)
             .padding(.bottom, 69)
@@ -60,7 +63,7 @@ struct MainScreen: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button(action: {
-                    
+                    coordinator.push(.settings)
                 }, label: {
                     RoundedRectangle(cornerRadius: 16)
                         .fill(.secondaryBG)
@@ -75,11 +78,15 @@ struct MainScreen: View {
             ToolbarItem(placement: .principal) {
                 HStack {
                     Spacer()
-                    ImageTextView(text: "100")
+                    ImageTextView(text: String(userManager.userMoney))
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {
                 ticketSubView
+            }
+        }.onChange(of: scenePhase) { newPhase in
+            if newPhase == .background {
+                userManager.updateUserData()
             }
         }
 }
@@ -105,12 +112,12 @@ var ticketSubView: some View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 36, height: 36)
-            Text("11")
+            Text(String(userManager.tickets))
                 .customText(.interBold, color: .secondaryText)
                 .frame(width: 20)
                 .offset(x: 10)
             Button(action: {
-                
+                coordinator.push(.shop)
             }, label: {
                 Circle()
                     .fill(.shadow(.inner(color: Color(red: 0.9333, green: 0.4078, blue: 0), radius: 2, y: -2)))

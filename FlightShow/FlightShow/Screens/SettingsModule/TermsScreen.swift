@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TermsScreen: View {
-  //  @EnvironmentObject var coordinator: Coordinator
+    @EnvironmentObject var coordinator: MainCoordinator
     var isTerms: Bool
 
     var body: some View {
@@ -27,7 +27,7 @@ struct TermsScreen: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 BackButton {
-                  //  coordinator.pop()
+                coordinator.pop()
                 }
             }
             ToolbarItem(placement: .principal) {

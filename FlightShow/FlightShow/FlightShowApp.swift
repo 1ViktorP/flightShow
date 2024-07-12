@@ -11,9 +11,7 @@ import SwiftUI
 struct FlightShowApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                GameScreen(gameMode: .tournament)
-            }
+            CoordinatorView(saveManager: SaveManager.shared)
         }
     }
 }

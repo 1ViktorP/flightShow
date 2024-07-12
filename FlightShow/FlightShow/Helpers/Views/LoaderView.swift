@@ -28,7 +28,9 @@ struct LoaderView: View {
                     .ignoresSafeArea()
             }.animation(animation, value: drawingStroke)
             .onAppear {
-                drawingStroke.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    drawingStroke.toggle()
+                }
             }
     }
     

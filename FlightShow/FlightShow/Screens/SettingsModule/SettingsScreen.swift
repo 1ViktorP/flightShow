@@ -10,7 +10,7 @@ import MessageUI
 import StoreKit
 
 struct SettingsScreen: View {
-   // @EnvironmentObject var coordinator: Coordinator
+    @EnvironmentObject var coordinator: MainCoordinator
     @State private var showMailAlert: Bool = false
     @State private var resultMail: Result<MFMailComposeResult, Error>?
     @State private var isShowingMailView = false
@@ -42,7 +42,9 @@ struct SettingsScreen: View {
                                         }
                                         .onTapGesture {
                                             switch item.type {
-                                            case .shop: break//coordinator.push(.shop)
+                                            case .profile: 
+                                                   coordinator.push(.profile)
+                                            case .shop: coordinator.push(.shop)
                                             case .feedback:
                                                 if MFMailComposeViewController.canSendMail() {
                                                     self.isShowingMailView.toggle()
@@ -50,8 +52,8 @@ struct SettingsScreen: View {
                                                     self.showMailAlert = true
                                                 }
                                             case .rateUs: ReviewHandler.requestReview()
-                                            case .terms: break//coordinator.push(.terms(true))
-                                            case .policy: break//coordinator.push(.terms(false))
+                                            case .terms: coordinator.push(.terms(true))
+                                            case .policy: coordinator.push(.terms(false))
                                             default: break
                                             }
                                         }
@@ -81,7 +83,7 @@ struct SettingsScreen: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     BackButton {
-                     //   coordinator.pop()
+                        coordinator.pop()
                     }
                 }
                 ToolbarItem(placement: .principal) {
@@ -120,8 +122,4 @@ class ReviewHandler {
             }
         }
     }
-}
-
-#Preview {
-    SettingsScreen()
 }
