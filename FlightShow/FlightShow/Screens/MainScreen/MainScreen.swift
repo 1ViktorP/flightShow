@@ -50,9 +50,7 @@ struct MainScreen: View {
         CustomPageControl(totalIndex: GameMode.allCases.count, selectedIndex: selectedIndex)
         Spacer()
         Button("Play") {
-            if GameMode.allCases[selectedIndex] != .training {
-                userManager.tickets -= 2
-            }
+            userManager.tickets -= GameMode.allCases[selectedIndex].paymentGame
             coordinator.push(.gameLoader(GameMode.allCases[selectedIndex]))
         }.buttonStyle(MainButton())
             .padding(.horizontal, 16)

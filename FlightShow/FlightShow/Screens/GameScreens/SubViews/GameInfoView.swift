@@ -39,12 +39,12 @@ struct GameInfoView: View {
         VStack {
             switch gameMode {
             case .tournament:
-                statSubItem(text: "Entry: ", icon: "ticketStatus", value: "2")
+                statSubItem(text: "Entry: ", icon: "ticketStatus", value: "\(gameMode.paymentGame)")
             case .targetEvent:
-                statSubItem(text: "Entry: ", icon: "ticketStatus", value: "2")
+                statSubItem(text: "Entry: ", icon: "ticketStatus", value: "\(gameMode.paymentGame)")
                 statSubItem(text: "Target: ", icon: target, value: "\(targetCount)")
             case .championship:
-                statSubItem(text: "Entry: ", icon: "ticketStatus", value: "2")
+                statSubItem(text: "Entry: ", icon: "ticketStatus", value: "\(gameMode.paymentGame)")
             case .training:
                 EmptyView()
             }

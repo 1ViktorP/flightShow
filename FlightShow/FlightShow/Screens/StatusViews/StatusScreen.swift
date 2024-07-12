@@ -84,7 +84,7 @@ struct StatusScreen: View {
             Text("Reward:")
                 .customText(size: 17)
             statSubItem(icon: "coin", value: "\(reward)")
-            statSubItem(icon: "ticketStatus", value: "2")
+            statSubItem(icon: "ticketStatus", value: "\(currentGame.paymentGame)")
         }.padding(.bottom, 36)
     }
     

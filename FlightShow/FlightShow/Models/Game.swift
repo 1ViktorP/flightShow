@@ -72,4 +72,6 @@ enum GameMode: String, CaseIterable {
             return 2
         }
     }
+    
+    
 }
