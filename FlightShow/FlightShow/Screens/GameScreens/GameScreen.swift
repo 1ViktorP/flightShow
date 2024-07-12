@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct GameScreen: View {
+    @EnvironmentObject var userManager: UserManager
     @StateObject var gameVM: GameViewModel
     @StateObject var displayLink = DisplayLink()
     @State private var hasInfoRead: Bool = false
+    @State private var hasRuleRead: Bool = false
     @State private var planePositon: CGPoint = .zero
     let gameMode: GameMode
     
@@ -24,7 +26,12 @@ struct GameScreen: View {
             Image("gameBG")
                 .resizable()
                 .ignoresSafeArea()
-            if hasInfoRead {
+            if !hasInfoRead {
+                GameInfoView(gameMode: gameMode, target: gameVM.targetElement, targetCount: gameVM.targetCount) {
+                    hasInfoRead = true
+                }
+            }
+            if hasRuleRead {
                 ZStack {
                     switch gameMode {
                     case .tournament:
@@ -42,19 +49,36 @@ struct GameScreen: View {
                     }
                     PlaneView(position: $planePositon)
                 }
-            } else {
-                GameInfoView(gameMode: gameMode, target: gameVM.targetElement) {
-                    hasInfoRead = true
-                }
+            } else if hasInfoRead {
+               ruleWindow
+                    .onTapGesture {
+                        hasRuleRead = true
+                    }
             }
             if gameVM.gameStatus != nil {
-                StatusScreen(gameStatus: gameVM.gameStatus!) {
+                StatusScreen(gameStatus: gameVM.gameStatus!, currentGame: gameVM.currentMode, reward: rewardCalculation) {
                     switch gameVM.gameStatus {
+                    case .exit:
+                        gameVM.continueGame = true
+                        gameVM.pause = false
                     case .lose:
                         gameVM.tryAgain = true
                     default: break
                     }
                     gameVM.gameStatus = nil
+                }.onAppear {
+                    if gameVM.gameStatus == .win {
+                        userManager.saveGameCountStat(game: gameVM.currentMode, isWin: true)
+                        userManager.saveModeStat(game: gameVM.currentMode, isWin: true, seconds: gameVM.seconds)
+                        reward()
+                    } else if gameVM.gameStatus == .lose {
+                        userManager.saveGameCountStat(game: gameVM.currentMode, isWin: false)
+                        userManager.saveModeStat(game: gameVM.currentMode, isWin: false, seconds: gameVM.seconds)
+                        reward()
+                    } else if  gameVM.gameStatus == .exit {
+                        gameVM.pause = true
+                        gameVM.continueGame = false
+                    }
                 }
             }
         }
@@ -64,8 +88,7 @@ struct GameScreen: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 BackButton {
-                    displayLink.stop()
-                  //  coordinator.pop()
+                    gameVM.gameStatus = .exit
                 }
             }
             
@@ -85,7 +108,6 @@ struct GameScreen: View {
     }
     
     var targetItem: some View {
-    
             HStack(spacing: -25) {
                 Image(gameVM.targetElement)
                     .resizable()
@@ -103,6 +125,48 @@ struct GameScreen: View {
                         }
                     }
             }
+    }
+    
+    var ruleWindow: some View {
+        VStack {
+           Spacer()
+            Text("Tap left or right on the screen to move your plane in that direction.")
+                .customText(color: .white.opacity(0.5))
+                .multilineTextAlignment(.center)
+            Spacer()
+            HStack {
+                Image("left")
+                    .resizable()
+                    .frame(width: 42, height: 65)
+                PlaneView(position: $planePositon)
+                Image("right")
+                    .resizable()
+                    .frame(width: 42, height: 65)
+            }.frame(height: 120)
+            .padding(.horizontal, 32)
+        }.frame(maxHeight: .infinity)
+            .contentShape(Rectangle())
+        .padding(.horizontal, 32)
+    }
+    
+    private func reward() {
+        userManager.userMoney += rewardCalculation
+    }
+    
+    var rewardCalculation: Int {
+       return switch gameVM.currentMode {
+        case .tournament:
+            gameVM.seconds / 2
+        case .targetEvent:
+            if gameVM.scoreCount >= gameVM.targetCount {
+                100
+            } else {
+                0
+            }
+        case .championship:
+            gameVM.scoreCount
+        case .training: 0
+        }
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct GameInfoView: View {
     let gameMode: GameMode
     var target: String = ""
+    var targetCount: Int = 0
     var action: () -> Void
     var body: some View {
         VStack(spacing: 0) {
@@ -41,7 +42,7 @@ struct GameInfoView: View {
                 statSubItem(text: "Entry: ", icon: "ticketStatus", value: "2")
             case .targetEvent:
                 statSubItem(text: "Entry: ", icon: "ticketStatus", value: "2")
-                statSubItem(text: "Target: ", icon: target, value: "2")
+                statSubItem(text: "Target: ", icon: target, value: "\(targetCount)")
             case .championship:
                 statSubItem(text: "Entry: ", icon: "ticketStatus", value: "2")
             case .training:

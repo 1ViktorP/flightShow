@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct StatusScreen: View {
-   
+    @EnvironmentObject var coordinator: MainCoordinator
     let gameStatus: GameStatus
+    let currentGame: GameMode
+    let reward: Int
     var action: () -> Void
     var body: some View {
         VStack {
@@ -27,7 +29,7 @@ struct StatusScreen: View {
                 Text(gameStatus.description)
                     .customText(size: 17)
                     .padding(.bottom, 20)
-                if gameStatus == .win {
+                if currentGame != .training {
                     statItem
                 } else {
                     Rectangle()
@@ -53,24 +55,24 @@ struct StatusScreen: View {
             switch gameStatus {
             case .win:
                 Button("Continue") {
-                    
+                    action()
                 }.buttonStyle(MainButton(isHamburger: false))
                 Button("Go Home") {
-                    
+                    coordinator.navigateToRoot()
                 }.buttonStyle(MainButton(isHamburger: false, isClear: true))
             case .lose:
                 Button("Try Again") {
                     action()
                 }.buttonStyle(MainButton(isHamburger: false))
                 Button("Go Home") {
-                    
+                    coordinator.navigateToRoot()
                 }.buttonStyle(MainButton(isHamburger: false, isClear: true))
             case .exit:
                 Button("Go Home") {
-                    
+                    coordinator.navigateToRoot()
                 }.buttonStyle(MainButton(isHamburger: false))
                 Button("Continue") {
-                    
+                    action()
                 }.buttonStyle(MainButton(isHamburger: false, isClear: true))
             }
             
@@ -81,8 +83,8 @@ struct StatusScreen: View {
         HStack {
             Text("Reward:")
                 .customText(size: 17)
-            statSubItem(icon: "coin", value: "11")
-            statSubItem(icon: "ticketStatus", value: "11")
+            statSubItem(icon: "coin", value: "\(reward)")
+            statSubItem(icon: "ticketStatus", value: "2")
         }.padding(.bottom, 36)
     }
     
@@ -94,11 +96,5 @@ struct StatusScreen: View {
             Text(value)
                 .customText(.interBold, size: 17, color: .white)
         }
-    }
-}
-
-#Preview {
-    StatusScreen(gameStatus: .lose) {
-        
     }
 }

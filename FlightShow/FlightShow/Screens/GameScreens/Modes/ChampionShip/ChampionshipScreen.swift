@@ -68,6 +68,16 @@ struct ChampionshipScreen: View {
                 displayLink.start()
                 gameVM.tryAgain = false
             }
+        }.onChange(of: gameVM.pause) { _ in
+            if gameVM.pause {
+                displayLink.stop()
+                championshipVM.timer.upstream.connect().cancel()
+            }
+        }.onChange(of: gameVM.continueGame) { _ in
+            if gameVM.continueGame {
+                displayLink.start()
+                championshipVM.timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+            }
         }
     }
 }

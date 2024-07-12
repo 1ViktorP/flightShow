@@ -41,6 +41,6 @@ class ProfileViewModel: ObservableObject {
     }
     
     var longest: String {
-        (gameModeStat.first(where: {$0.modeRaw == GameMode.tournament.rawValue})?.seconds.max()?.toTimeText() ?? "") + "min."
+        (gameModeStat.first(where: {$0.modeRaw == GameMode.tournament.rawValue})?.seconds.max()?.toTimeText() ?? "") + " min."
     }
 }

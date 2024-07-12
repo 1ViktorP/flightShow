@@ -41,11 +41,11 @@ class UserManager: ObservableObject {
         } else {
             gameCountStat.loseCount += 1
         }
-        saveModeStat(game: game, isWin: isWin)
         saveManager.saveStat(stat: gameCountStat)
     }
     
     func saveModeStat(game: GameMode, isWin: Bool, seconds: Int = 0) {
+        gameModeStat = saveManager.fetchGameModeStat()
         if let firstIndex = gameModeStat.firstIndex(where: {$0.modeRaw == game.rawValue }) {
             gameModeStat[firstIndex].played += 1
             gameModeStat[firstIndex].win += isWin ? 1 : 0
