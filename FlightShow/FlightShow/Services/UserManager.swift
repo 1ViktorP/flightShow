@@ -51,6 +51,9 @@ class UserManager: ObservableObject {
             gameModeStat[firstIndex].win += isWin ? 1 : 0
             gameModeStat[firstIndex].lose += isWin ? 0 : 1
             gameModeStat[firstIndex].seconds.append(seconds)
+            if gameModeStat[firstIndex].played % 10 == 0 {
+                gameModeStat[firstIndex].level += 1
+            }
         } else {
             gameModeStat.append(GameModeStat(modeRaw: game.rawValue,
                                              title: game.title + " " + game.subTitle,
@@ -61,5 +64,9 @@ class UserManager: ObservableObject {
                                              level: 1, seconds: [seconds]))
         }
         saveManager.saveGameModeStat(stat: gameModeStat)
+    }
+    
+    func fetchLevelMode(mode: GameMode) -> Int {
+         saveManager.fetchGameModeStat().first(where: {$0.modeRaw == mode.rawValue})?.level ?? 1
     }
 }

@@ -27,7 +27,7 @@ struct ChampionshipScreen: View {
                     .frame(width: GameChampionshipItem.size.width, height: GameChampionshipItem.size.height)
                     .onChange(of: displayLink.updateValue) { _ in
                         if championshipVM.elements.count > index {
-                            championshipVM.elements[index].offset += 3.2
+                            championshipVM.elements[index].offset += gameVM.speed
                             championshipVM.checkCollision(elementPosition: CGPoint(x: championshipVM.elements[index].xPosition,
                                                                            y: championshipVM.elements[index].offset),
                                                   planePosition: planePosition) { isTouch in

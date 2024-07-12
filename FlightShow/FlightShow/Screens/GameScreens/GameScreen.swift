@@ -81,6 +81,8 @@ struct GameScreen: View {
                     }
                 }
             }
+        }.onAppear {
+            gameVM.speed = gameMode.updateSpeedForLevel(level: userManager.fetchLevelMode(mode: gameMode))
         }
         .navigationBarBackButtonHidden(true)
             .navigationBarTitleDisplayMode(.inline)

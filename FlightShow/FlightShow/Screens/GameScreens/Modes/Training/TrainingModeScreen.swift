@@ -28,7 +28,7 @@ struct TrainingModeScreen: View {
                     .rotationEffect(.degrees(item.isRotate ? 90 : 0))
                     .onChange(of: displayLink.updateValue) { _ in
                         if trainingVM.blocks.count > index {
-                            trainingVM.blocks[index].offset += 3.2
+                            trainingVM.blocks[index].offset += gameVM.speed
                             trainingVM.checkCollision(isRotate: item.isRotate, elementPosition: CGPoint(x: trainingVM.blocks[index].xPosition,
                                                                            y: trainingVM.blocks[index].offset),
                                                   planePosition: planePosition) { isTouch in

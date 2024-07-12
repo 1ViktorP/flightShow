@@ -28,7 +28,7 @@ struct TargetEventScreen: View {
                     .frame(width: GameTargetTournamentItem.size(name: item.name).width, height: GameTargetTournamentItem.size(name: item.name).height)
                     .onChange(of: displayLink.updateValue) { _ in
                         if targetVM.elements.count > index {
-                            targetVM.elements[index].offset += 4
+                            targetVM.elements[index].offset += gameVM.speed
                             targetVM.checkCollision(elementPosition: CGPoint(x: targetVM.elements[index].xPosition,
                                                                               y: targetVM.elements[index].offset),
                                                     elementName: item.name,

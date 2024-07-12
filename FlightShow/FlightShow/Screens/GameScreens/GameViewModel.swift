@@ -18,8 +18,8 @@ class GameViewModel: ObservableObject {
     @Published var tryAgain: Bool = false
     @Published var pause: Bool = false
     @Published var continueGame: Bool = false
+    var speed: Double = 1.0
     init(currentMode: GameMode) {
         self.currentMode = currentMode
-        
     }
 }
