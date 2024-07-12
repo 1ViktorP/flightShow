@@ -39,7 +39,6 @@ struct SettingsItemView: View {
     }
 }
 
-
 struct CustomToggle: UIViewRepresentable {
     
    @Binding var isOn: Bool

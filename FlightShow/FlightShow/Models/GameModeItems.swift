@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct GameModeStat: Identifiable {
-    let id = UUID()
-    let name: String
-    let icon: String
-    let played: String
-    let winLose: String
-}
-
 struct GameTrainingItem: Identifiable {
     let id = UUID()
     let name = "trainingBlock"

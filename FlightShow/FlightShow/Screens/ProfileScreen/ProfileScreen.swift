@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct ProfileScreen: View {
+    @EnvironmentObject var coordinator: MainCoordinator
+    @EnvironmentObject var userManager: UserManager
+    @StateObject var profileVM: ProfileViewModel
+   
+    init(saveManager: Saveable) {
+        _profileVM = StateObject(wrappedValue: ProfileViewModel(saveManager: saveManager))
+    }
+    
     var body: some View {
             ScrollView {
                 VStack(spacing: 16) {
@@ -26,7 +34,7 @@ struct ProfileScreen: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 BackButton {
-                  //  coordinator.pop()
+                    coordinator.pop()
                 }
             }
             ToolbarItem(placement: .principal) {
@@ -34,7 +42,7 @@ struct ProfileScreen: View {
                     .customText(.interSemiBold, size: 17, color: .secondaryText)
             }
             ToolbarItem(placement: .topBarTrailing) {
-                ImageTextView(text: "100")
+                ImageTextView(text: String(userManager.userMoney))
             }
         }
     }
@@ -58,10 +66,10 @@ struct ProfileScreen: View {
                 .customText(.interSemiBold, size: 24, color: .secondaryText)
                 .frame(maxWidth: .infinity, alignment: .leading)
             VStack(spacing: 16) {
-               overviewItem(name: "Total Games", value: "1")
-                overviewItem(name: "Wins/Losses", value: "1")
-                overviewItem(name: "Win Percentage", value: "1")
-                overviewItem(name: "Longest Game", value: "1")
+                overviewItem(name: "Total Games", value: profileVM.played)
+                overviewItem(name: "Wins/Losses", value: profileVM.winLoseCount)
+                overviewItem(name: "Win Percentage", value: profileVM.winRate)
+                overviewItem(name: "Longest Game", value: profileVM.longest)
             }.padding(.horizontal, 16)
                 .padding(.vertical, 18)
                 .background {
@@ -90,8 +98,8 @@ struct ProfileScreen: View {
             Text("Mode Stat")
                 .customText(.interSemiBold, size: 24, color: .secondaryText)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            ForEach(1...4, id: \.self) { _ in
-                gameModeItem(gameModeStat: GameModeStat(name: "name", icon: "1", played: "11", winLose: "11"))
+            ForEach(profileVM.gameModeStat) { item in
+                gameModeItem(gameModeStat: item)
             }
         }
     }
@@ -102,10 +110,10 @@ struct ProfileScreen: View {
                 .resizable()
                 .frame(width: 89, height: 89)
             VStack(alignment: .leading, spacing: 8) {
-                Text(gameModeStat.name)
+                Text(gameModeStat.title)
                     .customText(.interMedium, size: 17)
-                overviewItem(name: "Games Played:", value: "11")
-                overviewItem(name: "Wins/Losses: ", value: "11")
+                overviewItem(name: "Games Played:", value: String(gameModeStat.played))
+                overviewItem(name: "Wins/Losses: ", value: String(gameModeStat.win) + "/" + String(gameModeStat.lose))
             }
             Spacer()
         }.padding(.horizontal, 16)
@@ -114,11 +122,5 @@ struct ProfileScreen: View {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(.secondaryBG)
             }
-    }
-}
-
-#Preview {
-    NavigationStack {
-        ProfileScreen()
     }
 }

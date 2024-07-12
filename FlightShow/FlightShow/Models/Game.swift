@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GameMode: CaseIterable {
+enum GameMode: String, CaseIterable {
     case tournament
     case targetEvent
     case championship

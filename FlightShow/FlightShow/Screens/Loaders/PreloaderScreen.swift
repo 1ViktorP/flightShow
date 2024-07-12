@@ -14,23 +14,23 @@ struct PreloaderScreen: View {
     var body: some View {
         ZStack {
             LoaderView()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        if  UserDefaults.standard.object(forKey: "openOnb") == nil {
+                            UserDefaults.standard.set(true, forKey: "openOnb")
+                            withAnimation {
+                                showOnboarding = true
+                            }
+                        } else {
+                            action()
+                        }
+                    }
+                }
             if showOnboarding {
                 OnboardingScreen {
                     action()
                 }
             }
-        }.onAppear {
-            if  UserDefaults.standard.object(forKey: "openOnb") == nil {
-                UserDefaults.standard.set(true, forKey: "openOnb")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    withAnimation {
-                        showOnboarding = true
-                    }
-                }
-            } else {
-                action()
-            }
         }
-        
     }
 }

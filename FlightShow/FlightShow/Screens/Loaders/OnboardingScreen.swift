@@ -21,7 +21,7 @@ struct OnboardingScreen: View {
                 .padding(.top, 55)
             Spacer()
             Button("Start") {
-                
+                action()
             }.buttonStyle(MainButton())
             .padding(.horizontal, 16)
         }.frame(maxWidth: .infinity, maxHeight: .infinity)

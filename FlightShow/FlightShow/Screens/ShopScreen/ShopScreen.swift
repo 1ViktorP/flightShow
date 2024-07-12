@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ShopScreen: View {
+    @EnvironmentObject var coordinator: MainCoordinator
+    @EnvironmentObject var userManager: UserManager
     @State private var showBoughtAlert: Bool = false
     @State private var itemCount: Int = 0
     var body: some View {
@@ -39,7 +41,7 @@ struct ShopScreen: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 BackButton {
-                  //  coordinator.pop()
+                    coordinator.pop()
                 }
             }
             ToolbarItem(placement: .principal) {
@@ -55,10 +57,12 @@ struct ShopScreen: View {
     var oneItems: some View {
         ScrollView(.horizontal) {
             HStack(spacing: 16) {
-                ForEach(1...4, id: \.self) { item in
-                    OneItem(item: Shop(tickets: 1, price: 100)) {
+                ForEach(Shop.shopItems) { item in
+                    OneItem(item: item) {
                         showBoughtAlert = true
-                        itemCount = item
+                        itemCount = item.tickets
+                        userManager.tickets += item.tickets
+                        userManager.userMoney -= item.price
                     }
                 }
             }
@@ -68,10 +72,12 @@ struct ShopScreen: View {
     var specialItems: some View {
         ScrollView(.horizontal) {
             HStack(spacing: 16) {
-                ForEach(1...4, id: \.self) { item in
-                    SpecialItem(item: Shop(tickets: 1, price: 100)) {
+                ForEach(Shop.shopSpecicalItems) { item in
+                    SpecialItem(item: item) {
                         showBoughtAlert = true
-                        itemCount = item
+                        itemCount = item.tickets
+                        userManager.tickets += item.tickets
+                        userManager.userMoney -= item.price
                     }
                 }
             }
@@ -92,7 +98,7 @@ struct ShopScreen: View {
                     .padding(.bottom, 32)
                     .padding(.horizontal, 50)
                 Button("Go Home") {
-                    
+                    coordinator.navigateToRoot()
                 }.buttonStyle(MainButton(isHamburger: false))
                     .padding(.horizontal, 32)
             }.padding(.vertical, 50)
