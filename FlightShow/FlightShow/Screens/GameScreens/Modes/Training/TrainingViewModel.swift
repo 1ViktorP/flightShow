@@ -39,15 +39,20 @@ class TrainingViewModel: ObservableObject {
                                                   y: elementPosition.y),
                                   size: CGSize(width: GameTrainingItem.size.width, height: GameTrainingItem.size.height))
         }
-        let userPlaneFrame = CGRect(origin: planePosition, size: CGSize(width: UserPlane.size.width, height: UserPlane.size.height))
         
-        let elementXRange = elementFrame.minX...elementFrame.maxX
-        let elementYRange = elementFrame.minY...elementFrame.maxY
-        let userPlaneXRange = userPlaneFrame.minX...userPlaneFrame.maxX
-        let userPlaneYRange = userPlaneFrame.minY...userPlaneFrame.maxY
-        
-        if (elementXRange.contains(userPlaneXRange.lowerBound) || elementXRange.contains(userPlaneXRange.upperBound)) && (elementYRange.contains(userPlaneYRange.lowerBound) || elementYRange.contains(userPlaneYRange.upperBound)) {
+        let planePositionWidth = CGPoint(x: planePosition.x - 5, y: planePosition.y + UserPlane.size.height / 3.3)
+        let userPlaneFrameWidth = CGRect(origin: planePositionWidth, size: CGSize(width: UserPlane.size.width, height: 35))
+        let planePositionHeight = CGPoint(x: planePosition.x + UserPlane.size.width / 3.2, y: planePosition.y)
+        let userPlaneFrameHeight = CGRect(origin: planePositionHeight, size: CGSize(width: 35, height: UserPlane.size.height))
+
+        if elementFrame.intersects(userPlaneFrameWidth) || elementFrame.intersects(userPlaneFrameHeight) {
             isTouching(true)
+            print("element min/max X: \(elementFrame.minX)" + ":" + "\(elementFrame.maxX)")
+            print("element min/max Y: \(elementFrame.minY)" + ":" + "\( elementFrame.maxY)")
+            print("userPlaneFrameWidth X: \(userPlaneFrameWidth.minX)" + ":" + "\(userPlaneFrameWidth.maxX) ")
+            print("userPlaneFrameWidth Y: \(userPlaneFrameWidth.minY)" + ":" +  "\(userPlaneFrameWidth.maxY) ")
+            print("userPlaneFrameheight X: \(userPlaneFrameHeight.minX)" + ":" +  "\(userPlaneFrameHeight.maxX)")
+            print("userPlaneFrameheight Y: \(userPlaneFrameHeight.minY)" + ":" +  "\(userPlaneFrameHeight.maxY)")
         }
     }
 }
