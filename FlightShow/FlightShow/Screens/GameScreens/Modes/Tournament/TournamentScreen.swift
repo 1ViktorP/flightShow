@@ -56,7 +56,7 @@ struct TournamentScreen: View {
                     tournamentVM.screenWidth = newValue.width
                 }
         }.onReceive(tournamentVM.timer) { _ in
-            tournamentVM.appendElements()
+                tournamentVM.appendElements()
             gameVM.seconds += 1
         }.onAppear {
             displayLink.start()

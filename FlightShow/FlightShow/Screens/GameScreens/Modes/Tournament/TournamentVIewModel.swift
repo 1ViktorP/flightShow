@@ -26,13 +26,13 @@ class TournamentVIewModel: ObservableObject {
                                                    y: elementPosition.y),
                                    size: CGSize(width: GameTargetTournamentItem.size(name: elementName).width,
                                                 height: GameTargetTournamentItem.size(name: elementName).height))
-        let userPlaneFrame = CGRect(origin: planePosition, size: CGSize(width: UserPlane.size.width - 40, height: UserPlane.size.height - 40))
-//        let elementXRange = elementFrame.minX...elementFrame.maxX
-//        let elementYRange = elementFrame.minY...elementFrame.maxY
-//        let userPlaneXRange = (userPlaneFrame.minX + 20)...(userPlaneFrame.maxX - 20)
-//        let userPlaneYRange = (userPlaneFrame.minY + 20)...(userPlaneFrame.maxY - 20)
-        
-        if elementFrame.intersects(userPlaneFrame) {
+       
+        let planePositionWidth = CGPoint(x: planePosition.x, y: planePosition.y + UserPlane.size.height / 3)
+        let userPlaneFrameWidth = CGRect(origin: planePositionWidth, size: CGSize(width: UserPlane.size.width, height: 40))
+        let planePositionHeight = CGPoint(x: planePosition.x + UserPlane.size.width / 3, y: planePosition.y)
+        let userPlaneFrameHeight = CGRect(origin: planePositionHeight, size: CGSize(width: 40, height: UserPlane.size.height))
+
+        if elementFrame.intersects(userPlaneFrameWidth) || elementFrame.intersects(userPlaneFrameHeight) {
             isTouching(true)
         }
     }
