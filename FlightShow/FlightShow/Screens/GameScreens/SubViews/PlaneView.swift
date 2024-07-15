@@ -19,12 +19,6 @@ struct PlaneView: View {
            Rectangle()
                 .fill(Color.red.opacity(0.00001))
                 .overlay {
-                    Rectangle()
-                        .fill(.red)
-                        .frame(width: UserPlane.size.width, height: 40)
-                    Rectangle()
-                        .fill(.yellow)
-                        .frame(width: 40, height: UserPlane.size.height)
                     Image("userPlane")
                         .resizable()
                         .frame(width: UserPlane.size.width, height: UserPlane.size.height)
