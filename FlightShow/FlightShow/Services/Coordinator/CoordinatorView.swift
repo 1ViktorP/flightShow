@@ -34,10 +34,8 @@ struct CoordinatorView: View {
                             coordinator.build(page)
                         }
                 }
-//                .environmentObject(userManager)
-//                .environmentObject(coordinator)
             }
         }.environmentObject(userManager)
-            .environmentObject(coordinator)
+           .environmentObject(coordinator)
     }
 }

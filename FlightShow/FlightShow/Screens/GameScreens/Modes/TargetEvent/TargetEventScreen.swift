@@ -71,7 +71,7 @@ struct TargetEventScreen: View {
                 displayLink.start()
             }.onChange(of: gameVM.tryAgain) { _ in
                 if  gameVM.tryAgain {
-                    gameVM.targetCount = 0
+                    gameVM.scoreCount = 0
                     targetVM.elements.removeAll()
                     targetVM.timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
                     displayLink.start()
