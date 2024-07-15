@@ -13,6 +13,7 @@ struct GameScreen: View {
     @StateObject var displayLink = DisplayLink()
     @State private var hasInfoRead: Bool = false
     @State private var hasRuleRead: Bool = false
+    @State private var hasDragged: Bool = false
     @State private var planePositon: CGPoint = .zero
     let gameMode: GameMode
     
@@ -45,7 +46,7 @@ struct GameScreen: View {
                         TrainingModeScreen(gameVM: gameVM, displayLink: displayLink, planePosition: planePositon)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
-                    PlaneView(position: $planePositon)
+                    PlaneView(position: $planePositon, hasDragged: $hasDragged)
                 }
             } else if hasInfoRead {
                ruleWindow
@@ -57,12 +58,16 @@ struct GameScreen: View {
                 StatusScreen(gameStatus: gameVM.gameStatus!, currentGame: gameVM.currentMode, reward: rewardCalculation) {
                     switch gameVM.gameStatus {
                     case .exit:
+                        gameVM.pause = false
+                    case .win:
                         gameVM.continueGame = true
                         gameVM.pause = false
+                        hasDragged = false
                         updateLevel()
                     case .lose:
                         gameVM.tryAgain = true
                         updateLevel()
+                        hasDragged = false
                     default: break
                     }
                     gameVM.gameStatus = nil
@@ -97,7 +102,7 @@ struct GameScreen: View {
             ToolbarItem(placement: .topBarTrailing) {
                 switch gameMode {
                 case .tournament:
-                    ImageTextView(text: gameVM.seconds.toTimeText())
+                    ImageTextView(text: gameVM.seconds.toTimeText(), image: "clock")
                 case .targetEvent:
                     targetItem
                 case .championship:
@@ -140,7 +145,7 @@ struct GameScreen: View {
                 Image("left")
                     .resizable()
                     .frame(width: 42, height: 65)
-                PlaneView(position: $planePositon)
+                PlaneView(position: $planePositon, hasDragged: $hasDragged)
                 Image("right")
                     .resizable()
                     .frame(width: 42, height: 65)

@@ -19,7 +19,7 @@ struct TournamentScreen: View {
         ZStack(alignment: .top) {
             ForEach( Array(zip(tournamentVM.elements.indices, tournamentVM.elements)), id: \.1.id) { (index, item) in
                 Rectangle()
-                    .fill(Color.clear)
+                    .fill(Color.red.opacity(0.00001))
                     .overlay {
                         Image(item.name)
                             .resizable()

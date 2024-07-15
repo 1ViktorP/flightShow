@@ -9,19 +9,19 @@ import SwiftUI
 
 struct PlaneView: View {
     @Binding var position: CGPoint
+    @Binding var hasDragged: Bool
     @State private var insidePosition: CGPoint = .zero
     @State private var lastPosition: CGPoint = .zero
     @State private var insideRect: CGRect = .zero
-    @State private var hasDragged: Bool = false
     var body: some View {
         VStack {
             Spacer()
-            RoundedRectangle(cornerRadius: 50)
+           Rectangle()
                 .fill(Color.red.opacity(0.00001))
                 .overlay {
                     Image("userPlane")
                         .resizable()
-                        .scaledToFill()
+                        .frame(width: UserPlane.size.width, height: UserPlane.size.height)
                 }
                 .frame(width: UserPlane.size.width, height: UserPlane.size.height)
                 .offset(x: insidePosition.x, y: insidePosition.y)
@@ -52,5 +52,12 @@ struct PlaneView: View {
                 )
         }
         .frame(maxWidth: .infinity)
+        .onChange(of: hasDragged) { newValue in
+            if !hasDragged {
+            insidePosition = .zero
+            lastPosition = .zero
+            insideRect = .zero
+            }
+        }
     }
 }

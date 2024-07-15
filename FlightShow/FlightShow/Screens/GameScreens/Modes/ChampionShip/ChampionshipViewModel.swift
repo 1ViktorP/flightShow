@@ -24,14 +24,14 @@ class ChampionshipViewModel: ObservableObject {
         let  elementFrame = CGRect(origin: CGPoint(x: elementPosition.x,
                                                    y: elementPosition.y),
                                    size: CGSize(width: GameTrainingItem.size.width, height: GameTrainingItem.size.height))
-        let userPlaneFrame = CGRect(origin: planePosition, size: CGSize(width: UserPlane.size.width, height: UserPlane.size.height))
+        let userPlaneFrame = CGRect(origin: planePosition, size: CGSize(width: UserPlane.size.width, height: UserPlane.size.height - 40))
         
-        let elementXRange = elementFrame.minX...elementFrame.maxX
-        let elementYRange = elementFrame.minY...elementFrame.maxY
-        let userPlaneXRange = userPlaneFrame.minX...userPlaneFrame.maxX
-        let userPlaneYRange = userPlaneFrame.minY...userPlaneFrame.maxY
-        
-        if (elementXRange.contains(userPlaneXRange.lowerBound) || elementXRange.contains(userPlaneXRange.upperBound)) && (elementYRange.contains(userPlaneYRange.lowerBound) || elementYRange.contains(userPlaneYRange.upperBound)) {
+//        let elementXRange = elementFrame.minX...elementFrame.maxX
+//        let elementYRange = elementFrame.minY...elementFrame.maxY
+//        let userPlaneXRange = userPlaneFrame.minX...userPlaneFrame.maxX
+//        let userPlaneYRange = userPlaneFrame.minY...userPlaneFrame.maxY
+
+        if elementFrame.intersects(userPlaneFrame) {
             isTouching(true)
         }
     }
