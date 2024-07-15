@@ -28,7 +28,7 @@ struct TargetEventScreen: View {
                     .frame(width: GameTargetTournamentItem.size(name: item.name).width, height: GameTargetTournamentItem.size(name: item.name).height)
                     .onChange(of: displayLink.updateValue) { _ in
                         if targetVM.elements.count > index {
-                            targetVM.elements[index].offset += gameVM.speed
+                         //   targetVM.elements[index].offset += gameVM.speed
                             targetVM.checkCollision(elementPosition: CGPoint(x: targetVM.elements[index].xPosition,
                                                                              y: targetVM.elements[index].offset),
                                                     elementName: item.name,
@@ -47,12 +47,12 @@ struct TargetEventScreen: View {
                                         targetVM.timer.upstream.connect().cancel()
                                         gameVM.gameStatus = .lose
                                     }
-                                    targetVM.elements[index].isCatch = true
                                 }
                             }
                             if targetVM.elements[index].offset > 920 {
                                 targetVM.elements.remove(at: index)
                             }
+                            targetVM.elements[index].offset += gameVM.speed
                         }
                     }
                     .position(x: item.xPosition + GameTargetTournamentItem.size(name: item.name).width / 2)
@@ -81,11 +81,16 @@ struct TargetEventScreen: View {
                 if gameVM.pause {
                     displayLink.stop()
                     targetVM.timer.upstream.connect().cancel()
+                } else {
+                    displayLink.start()
+                    targetVM.timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
                 }
             }.onChange(of: gameVM.continueGame) { _ in
                 if gameVM.continueGame {
-                    displayLink.start()
+                    gameVM.scoreCount = 0
+                    targetVM.elements.removeAll()
                     targetVM.timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+                    displayLink.start()
                 }
             }.onChange(of: gameVM.scoreCount) { newValue in
                 if newValue >= gameVM.targetCount {
