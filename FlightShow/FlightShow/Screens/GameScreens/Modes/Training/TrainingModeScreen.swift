@@ -44,7 +44,7 @@ struct TrainingModeScreen: View {
                             }
                         }
                     }
-                    .position(x: item.xPosition)
+                    .position(x: item.xPosition + (item.isRotate ? (GameTrainingItem.size.height / 2) : (GameTrainingItem.size.width / 2)))
                     .offset(y: item.offset)
                     .animation(animation, value: item.offset)
             }

@@ -15,7 +15,7 @@ class TournamentVIewModel: ObservableObject {
     
     func appendElements() {
         if screenWidth > 0 {
-            let randomPosition = CGFloat(Int.random(in: 15...(Int(screenWidth) - 16)))
+            let randomPosition = CGFloat(Int.random(in: 0...(Int(screenWidth) - 30)))
             let name = "enemy-\(Int.random(in: 1...6))"
             elements.append(GameTargetTournamentItem(name: name, xPosition: randomPosition, offset: 0))
         }
@@ -26,8 +26,7 @@ class TournamentVIewModel: ObservableObject {
                                                    y: elementPosition.y),
                                    size: CGSize(width: GameTargetTournamentItem.size(name: elementName).width,
                                                 height: GameTargetTournamentItem.size(name: elementName).height))
-        let userPlaneFrame = CGRect(origin: planePosition, size: CGSize(width: UserPlane.size.width - 10, height: UserPlane.size.height - 10))
-        
+        let userPlaneFrame = CGRect(origin: planePosition, size: CGSize(width: UserPlane.size.width - 20, height: UserPlane.size.height - 20))
         let elementXRange = elementFrame.minX...elementFrame.maxX
         let elementYRange = elementFrame.minY...elementFrame.maxY
         let userPlaneXRange = userPlaneFrame.minX...userPlaneFrame.maxX
@@ -35,13 +34,6 @@ class TournamentVIewModel: ObservableObject {
         
         if (elementXRange.contains(userPlaneXRange.lowerBound) || elementXRange.contains(userPlaneXRange.upperBound)) && (elementYRange.contains(userPlaneYRange.lowerBound) || elementYRange.contains(userPlaneYRange.upperBound)) {
             isTouching(true)
-            print("fail here")
-            print("element X:  \(elementFrame.minX), \(elementFrame.maxX)")
-            print("element Y:  \(elementFrame.minY), \(elementFrame.maxY)")
-            
-            print("user plane X:  \(userPlaneFrame.minX), \(userPlaneFrame.maxX)")
-            print("user plane Y:  \(userPlaneFrame.minY), \(userPlaneFrame.maxY)")
-            
         }
     }
 }

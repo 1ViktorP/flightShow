@@ -19,7 +19,7 @@ struct TournamentScreen: View {
         ZStack(alignment: .top) {
             ForEach( Array(zip(tournamentVM.elements.indices, tournamentVM.elements)), id: \.1.id) { (index, item) in
                 Rectangle()
-                    .fill(.clear)
+                    .fill(Color.clear)
                     .overlay {
                         Image(item.name)
                             .resizable()
@@ -40,12 +40,12 @@ struct TournamentScreen: View {
                                     gameVM.gameStatus = .lose
                                 }
                             }
-                            if tournamentVM.elements[index].offset > 1000 {
+                            if tournamentVM.elements[index].offset > 920 {
                                 tournamentVM.elements.remove(at: index)
                             }
                         }
                     }
-                    .position(x: item.xPosition)
+                    .position(x: item.xPosition + GameTargetTournamentItem.size(name: item.name).width / 2)
                     .offset(y: item.offset)
                     .animation(animation, value: item.offset)
             }

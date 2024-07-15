@@ -36,7 +36,7 @@ struct ChampionshipScreen: View {
                                     championshipVM.elements[index].isGoingToRemove = true
                                 }
                             }
-                            if championshipVM.elements[index].offset > 1000 {
+                            if championshipVM.elements[index].offset > 920 {
                                 displayLink.stop()
                                 championshipVM.timer.upstream.connect().cancel()
                                 gameVM.gameStatus = .lose
@@ -46,7 +46,7 @@ struct ChampionshipScreen: View {
                             }
                         }
                     }
-                    .position(x: item.xPosition)
+                    .position(x: item.xPosition + GameChampionshipItem.size.width / 2)
                     .offset(y: item.offset)
                     .animation(animation, value: item.offset)
             }
