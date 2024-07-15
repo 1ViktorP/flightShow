@@ -32,7 +32,9 @@ struct MainScreen: View {
                                         .onPreferenceChange(ViewLocationPreferenceKey.self) { viewLocation in
                                             guard let x =  viewLocation?.x else { return }
                                             if 0...65 ~= x {
-                                                selectedIndex = index
+                                                DispatchQueue.main.async {
+                                                    selectedIndex = index
+                                                }
                                             }
                                         }
                                 }
@@ -85,7 +87,8 @@ struct MainScreen: View {
             ToolbarItem(placement: .topBarTrailing) {
                 ticketSubView
             }
-        }.onChange(of: scenePhase) { newPhase in
+        }
+        .onChange(of: scenePhase) { newPhase in
             if newPhase == .background {
                 userManager.updateUserData()
             }

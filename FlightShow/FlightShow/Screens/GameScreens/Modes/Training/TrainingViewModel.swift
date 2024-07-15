@@ -31,16 +31,16 @@ class TrainingViewModel: ObservableObject {
         var elementFrame: CGRect = .zero
         if isRotate {
             elementFrame = CGRect(origin: CGPoint(x: elementPosition.x,
-                                                      y: elementPosition.y),
-                                      size: CGSize(width: GameTrainingItem.size.height, height: GameTrainingItem.size.width))
-           
+                                                  y: elementPosition.y),
+                                  size: CGSize(width: GameTrainingItem.size.height, height: GameTrainingItem.size.width))
+            
         } else {
             elementFrame = CGRect(origin: CGPoint(x: elementPosition.x,
-                                                      y: elementPosition.y),
-                                      size: CGSize(width: GameTrainingItem.size.width, height: GameTrainingItem.size.height))
+                                                  y: elementPosition.y),
+                                  size: CGSize(width: GameTrainingItem.size.width, height: GameTrainingItem.size.height))
         }
-        let userPlaneFrame = CGRect(origin: planePosition, size: CGSize(width: UserPlane.size.width - 10, height: UserPlane.size.height - 10))
-            
+        let userPlaneFrame = CGRect(origin: planePosition, size: CGSize(width: UserPlane.size.width, height: UserPlane.size.height))
+        
         let elementXRange = elementFrame.minX...elementFrame.maxX
         let elementYRange = elementFrame.minY...elementFrame.maxY
         let userPlaneXRange = userPlaneFrame.minX...userPlaneFrame.maxX
@@ -48,13 +48,6 @@ class TrainingViewModel: ObservableObject {
         
         if (elementXRange.contains(userPlaneXRange.lowerBound) || elementXRange.contains(userPlaneXRange.upperBound)) && (elementYRange.contains(userPlaneYRange.lowerBound) || elementYRange.contains(userPlaneYRange.upperBound)) {
             isTouching(true)
-            print("fail here")
-            print("element X:  \(elementFrame.minX), \(elementFrame.maxX)")
-            print("element Y:  \(elementFrame.minY), \(elementFrame.maxY)")
-                     
-            print("user plane X:  \(userPlaneFrame.minX), \(userPlaneFrame.maxX)")
-            print("user plane Y:  \(userPlaneFrame.minY), \(userPlaneFrame.maxY)")
-                     
         }
-        }
+    }
 }

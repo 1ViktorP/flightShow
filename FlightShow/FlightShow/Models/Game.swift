@@ -96,4 +96,16 @@ enum GameMode: String, CaseIterable {
         }
     }
     
+    func getTargetCount(level: Int) -> Int {
+        if level < 10 {
+            return 10
+        } else if level < 20 {
+            return 15
+        } else if level < 40 {
+            return 20
+        } else {
+            return 30
+        }
+    }
+    
 }

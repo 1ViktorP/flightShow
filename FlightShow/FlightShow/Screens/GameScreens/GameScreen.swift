@@ -36,10 +36,8 @@ struct GameScreen: View {
                     switch gameMode {
                     case .tournament:
                         TournamentScreen(gameVM: gameVM, displayLink: displayLink, planePosition: planePositon)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                     case .targetEvent:
                         TargetEventScreen(gameVM: gameVM, displayLink: displayLink, planePosition: planePositon)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                     case .championship:
                         ChampionshipScreen(gameVM: gameVM, displayLink: displayLink, planePosition: planePositon)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -61,8 +59,10 @@ struct GameScreen: View {
                     case .exit:
                         gameVM.continueGame = true
                         gameVM.pause = false
+                        updateLevel()
                     case .lose:
                         gameVM.tryAgain = true
+                        updateLevel()
                     default: break
                     }
                     gameVM.gameStatus = nil
@@ -82,7 +82,7 @@ struct GameScreen: View {
                 }
             }
         }.onAppear {
-            gameVM.speed = gameMode.updateSpeedForLevel(level: userManager.fetchLevelMode(mode: gameMode))
+           updateLevel()
         }
         .navigationBarBackButtonHidden(true)
             .navigationBarTitleDisplayMode(.inline)
@@ -168,6 +168,14 @@ struct GameScreen: View {
         case .championship:
             gameVM.scoreCount
         case .training: 0
+        }
+    }
+    
+    private func updateLevel() {
+        let level = userManager.fetchLevelMode(mode: gameMode)
+        gameVM.speed = gameMode.updateSpeedForLevel(level: level)
+        if gameVM.currentMode == .targetEvent {
+            gameVM.targetCount = gameVM.currentMode.getTargetCount(level: level)
         }
     }
 }

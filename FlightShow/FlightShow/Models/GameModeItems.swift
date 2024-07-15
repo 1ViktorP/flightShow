@@ -41,9 +41,9 @@ struct GameTargetTournamentItem: Identifiable {
         } else {
             return switch name {
             case "enemy-1": CGSize(width: 98, height: 79)
-            case "enemy-2": CGSize(width: 107, height: 59)
+            case "enemy-2": CGSize(width: 59, height: 107)
             case "enemy-3": CGSize(width: 98, height: 31)
-            case "enemy-4": CGSize(width: 73, height: 53)
+            case "enemy-4": CGSize(width: 53, height: 73)
             case "enemy-5": CGSize(width: 87, height: 69)
             case "enemy-6": CGSize(width: 75, height: 54)
             default: CGSize.zero
@@ -51,4 +51,3 @@ struct GameTargetTournamentItem: Identifiable {
         }
     }
 }
-

@@ -14,7 +14,6 @@ struct SettingsScreen: View {
     @State private var showMailAlert: Bool = false
     @State private var resultMail: Result<MFMailComposeResult, Error>?
     @State private var isShowingMailView = false
-    
     private func isOnSwitch(settings: SettingsItem) -> Bool {
         if settings.type == .vibration {
             return  UserDefaults.standard.object(forKey: "vibration") as? Bool ?? false

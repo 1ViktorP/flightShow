@@ -63,6 +63,7 @@ final class MainCoordinator: ObservableObject {
         case .profile:
             ProfileScreen(saveManager: saveManager)
         case .settings:
+            let _ = print("open sett")
             SettingsScreen()
         case .shop:
             ShopScreen()
